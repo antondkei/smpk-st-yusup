@@ -1,0 +1,167 @@
+/* =========================================
+   HEADER / NAVBAR (PREMIUM ELEVATED)
+========================================= */
+#smpk-josh .smpk-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 30px 0;
+  background: transparent;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* State saat layar di-scroll (Sticky) */
+#smpk-josh .smpk-header.is-sticky {
+  padding: 14px 0;
+  background: rgba(90, 15, 20, 0.85); /* Navy mewah */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+}
+
+#smpk-josh .header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+/* --- LOGO OPTIMIZATION --- */
+#smpk-josh .logo-img {
+  width: 180px;
+  display: flex;
+  align-items: center;
+  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#smpk-josh .logo-img img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), 
+              filter 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  will-change: transform, filter;
+}
+
+#smpk-josh .logo-img:hover img {
+  transform: scale(1.02) translateY(-2px); 
+  filter: drop-shadow(0 8px 20px rgba(224, 196, 159, 0.25)); 
+}
+
+#smpk-josh .smpk-header.is-sticky .logo-img {
+  width: 170px; /* Mengecil halus saat scroll */
+}
+
+/* --- NAVIGATION LINKS --- */
+#smpk-josh .header-nav {
+  display: flex;
+  gap: 32px;
+  justify-content: flex-end;
+  align-items: center;
+  flex: 1;
+}
+
+#smpk-josh .nav-item {
+  position: relative;
+  padding: 15px 0; /* Area aman agar kursor tidak lepas saat menuju dropdown */
+}
+
+#smpk-josh .nav-item > a {
+  position: relative;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 14px; 
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.3s ease;
+}
+
+/* Bukan Halaman Utama (Is Not Home) */
+#smpk-josh .smpk-header.is-not-home {
+  background: rgba(25, 26, 83, 1) !important;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  padding: 16px 0;
+}
+
+#smpk-josh .smpk-header.is-not-home .nav-item > a {
+  color: #ffffff !important;
+}
+
+/* Animasi Ikon Panah */
+#smpk-josh .dropdown-icon {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+#smpk-josh .nav-item:hover .dropdown-icon {
+  transform: rotate(180deg);
+  stroke: var(--color-secondary, #e0c49f);
+}
+
+/* Animasi Garis Bawah saat Hover */
+#smpk-josh .nav-item > a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: var(--color-secondary, #e0c49f);
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#smpk-josh .nav-item:hover > a::after {
+  width: 100%;
+}
+
+#smpk-josh .nav-item:hover > a {
+  color: var(--color-secondary, #e0c49f);
+}
+
+/* =========================================
+   NEW: DROPDOWN MENU ENGINE
+========================================= */
+#smpk-josh .dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(15px);
+  background: #ffffff;
+  min-width: 220px;
+  border-radius: 14px;
+  padding: 10px 0;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.18);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none; /* Mencegah trigger tidak sengaja saat sembunyi */
+}
+
+/* Munculkan Dropdown saat Hover */
+#smpk-josh .nav-item:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+  pointer-events: auto;
+}
+
+#smpk-josh .dropdown-menu a {
+  display: block;
+  padding: 11px 24px;
+  color: #191a53; /* Warna navy dasar teks */
+  text-decoration: none;
+  font-size: 13.5px;
+  font-weight: 600;
+  transition: all 0.25s ease;
+  text-align: left;
+}
+
+#smpk-josh .dropdown-menu a:hover {
+  background: rgba(25, 26, 83, 0.04);
+  color: var(--color-secondary, #cda76e); /* Emas saat hover sub-menu */
+  padding-left: 28px; /* Efek geser kanan estetik */
+}

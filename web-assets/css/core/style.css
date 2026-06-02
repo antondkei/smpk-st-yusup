@@ -1,0 +1,1920 @@
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video,adnav,adheader{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline;}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section,adnav,adheader{display:block;}body{line-height:1;display:block;}*{margin:0;padding:0;}html{display:block;}ol,ul{list-style:none;}blockquote,q{quotes:none;}blockquote:before,blockquote:after,q:before,q:after{background:transparent;}table{border-collapse:collapse;border-spacing:0;}*,*:before,*:after{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}
+#wrapper{max-width:970px}#main-wrapper{float:left;width:67%;word-wrap:break-word}#sidebar-wrapper{float:right;width:33%}body#layout ul,body#layout ul li{list-style-type:none;list-style:none}body#layout #header-wrapper{min-height:0;float:left;width:30%}body#layout #header-right{width:60%;float:right}body#layout #banner,body#layout #banner2{background-color:#5f6868;padding:20px 0!important;margin-bottom:20px}body#layout #banner:before,body#layout #banner2:before{content:'Ad Slot 970x90';font-size:13px;color:#fff;margin-bottom:20px;padding-bottom:5px;display:inline-block;font-weight:400;font-family:sans-serif}body#layout #banner .widget,body#layout #banner2 .widget{width:80%;margin:5px auto!important;overflow:hidden;float:none}body#layout #banner .add_widget,body#layout #banner2 .add_widget{width:80%;margin:5px auto!important;overflow:hidden;float:none}h1,h2,h3,h4,h5,h6{color:#222;font-weight:500;line-height:1.2;margin:0 0 10px}h1{font-size:200%}h2{font-size:180%}h3{font-size:160%}h4{font-size:140%}h5{font-size:120%}h6{font-size:100%}.post-body h1{font-size:190%}.post-body h2{font-size:170%}.post-body h3{font-size:150%;line-height:normal}.post-body h4{font-size:130%;line-height:normal}.post-body h5{font-size:110%}.post-body h6{font-size:100%}.post-body h1 b,.post-body h2 b,.post-body h3 b,.post-body h4 b,.post-body h5 b,.post-body h6 b{font-weight:500}
+
+/* =========================================
+   SETUP & VARIABLES (Premium Palette)
+========================================= */
+:root{
+  --color-primary:#5a0f14;
+  --color-primary-dark:#3f0b0f;
+  --color-primary-soft:#841c23;
+  --color-secondary:#d4a437;
+  --color-secondary-light:#f0d38a;
+  --color-accent-light:#f7f1e3;
+  --color-text:#1e1e1e;
+  --color-text-soft:#5e5e5e;
+  --color-text-light:#8d8d8d;
+  --color-white:#ffffff;
+
+  --color-gradient:linear-gradient( 135deg, #3b0a0f 0%, #5a0f14 30%, #b52f3f 100% );
+
+  --color-overlay:
+    linear-gradient(
+      to bottom,
+      rgba(0,0,0,0.35),
+      rgba(0,0,0,0.65)
+    );
+}
+
+/* =========================================
+   HERO SLIDER & KEN BURNS EFFECT
+========================================= */
+#smpk-josh .smpk-hero-slider {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+#smpk-josh .smpk-hero-slide{
+  position:absolute;
+  inset:0;
+  opacity:0;
+  transition: opacity 1.2s ease;
+  z-index:1;
+  overflow:hidden;
+}
+
+#smpk-josh .smpk-hero-slide.active{
+  opacity:1;
+  z-index:2;
+}
+
+#smpk-josh .smpk-hero-slide img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transform:scale(1);
+  transition:transform 6s ease;
+  display: block;
+}
+
+#smpk-josh .smpk-hero-slide.active img{
+  transform:scale(1.05);
+}
+
+/* =========================================
+   CINEMATIC OVERLAY
+========================================= */
+#smpk-josh .smpk-hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: linear-gradient(
+    90deg,
+    rgba(10, 3, 4, 0.85) 0%,
+    rgba(10, 3, 4, 0.6) 50%,
+    rgba(20, 5, 7, 0.7) 100%
+  );
+}
+
+/* =========================================
+   HERO CONTENT
+========================================= */
+#smpk-josh .smpk-hero-content {
+  position: relative;
+  z-index: 5;
+  width: 100%;
+  max-width: 900px;
+  padding-top: 180px;
+  padding-bottom: 120px;
+  color: var(--color-white, #ffffff);
+}
+
+/* =========================================
+   HERO BADGE (PREMIUM GLASS)
+========================================= */
+#smpk-josh .smpk-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 22px;
+  margin-bottom: 32px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 10px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+#smpk-josh .smpk-badge-dot {
+  width: 6px;
+  height: 6px;
+  background-color: var(--color-secondary, #d4a437);
+  border-radius: 50%;
+  display: inline-block;
+  box-shadow: 0 0 8px var(--color-secondary, #d4a437);
+}
+
+/* =========================================
+   TYPOGRAPHY & GRADIENT TEXT
+========================================= */
+#smpk-josh .smpk-hero-title {
+  margin-bottom: 28px;
+  font-size: clamp(2.8rem, 5.5vw, 5.2rem);
+  line-height: 1.1;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--color-white, #ffffff);
+}
+
+#smpk-josh .smpk-text-gradient {
+  background: linear-gradient(135deg, var(--color-secondary, #d4a437) 0%, var(--color-secondary-light, #f3cb65) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block;
+}
+
+#smpk-josh .smpk-hero-description {
+  max-width: 640px;
+  margin-bottom: 48px;
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.78);
+  font-weight: 400;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/* =========================================
+   BUTTON SYSTEM
+========================================= */
+#smpk-josh .smpk-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+#smpk-josh .smpk-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 18px 36px;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-decoration: none;
+  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  overflow: hidden;
+}
+
+#smpk-josh .smpk-btn-primary {
+  background: var(--color-secondary, #d4a437);
+  color: #1a1200;
+  box-shadow: 0 4px 15px rgba(212, 164, 55, 0.25);
+}
+
+#smpk-josh .smpk-btn-primary:hover {
+  transform: translateY(-4px);
+  background: var(--color-secondary-light, #f3cb65);
+  box-shadow: 0 8px 25px rgba(212, 164, 55, 0.4);
+}
+
+#smpk-josh .smpk-btn-icon {
+  transition: transform 0.3s ease;
+}
+
+#smpk-josh .smpk-btn-primary:hover .smpk-btn-icon {
+  transform: translateX(4px);
+}
+
+#smpk-josh .smpk-btn-secondary {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: var(--color-white, #ffffff);
+}
+
+#smpk-josh .smpk-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: translateY(-4px);
+}
+
+/* =========================================
+   DECORATIVE SLIDER INDICATORS
+========================================= */
+#smpk-josh .smpk-slider-indicators {
+  position: absolute;
+  right: 40px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 5;
+}
+
+#smpk-josh .smpk-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#smpk-josh .smpk-indicator.active {
+  background: var(--color-secondary, #d4a437);
+  transform: scale(1.3);
+  box-shadow: 0 0 8px var(--color-secondary, #d4a437);
+}
+
+/* =========================================
+   SCROLL DOWN INDICATOR (ANIMATED)
+========================================= */
+#smpk-josh .smpk-scroll-indicator {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+}
+
+#smpk-josh .smpk-mouse {
+  width: 26px;
+  height: 42px;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  padding-top: 8px;
+}
+
+#smpk-josh .smpk-wheel {
+  width: 4px;
+  height: 8px;
+  background-color: var(--color-secondary, #d4a437);
+  border-radius: 2px;
+  animation: smpk-scroll-anim 1.6s infinite;
+}
+
+@keyframes smpk-scroll-anim {
+  0% { opacity: 0; transform: translateY(-2px); }
+  30% { opacity: 1; }
+  100% { opacity: 0; transform: translateY(8px); }
+}
+
+/* =========================================
+   RESPONSIVE DESIGN
+========================================= */
+@media screen and (max-width: 992px) {
+  #smpk-josh .smpk-slider-indicators {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #smpk-josh .smpk-hero-content {
+    padding-top: 120px;
+    padding-bottom: 100px;
+  }
+
+  #smpk-josh .smpk-hero-title {
+    font-size: 2.6rem;
+  }
+
+  #smpk-josh .smpk-hero-description {
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 36px;
+  }
+  
+  #smpk-josh .smpk-hero-actions {
+    gap: 14px;
+  }
+  
+  #smpk-josh .smpk-btn {
+    width: 100%;
+    padding: 16px 28px;
+  }
+  
+  #smpk-josh .smpk-scroll-indicator {
+    bottom: 24px;
+  }
+}
+
+
+/* =========================================
+   ABOUT SECTION
+========================================= */
+#smpk-josh .smpk-about-section {
+  position: relative;
+  padding: 80px 0;
+  background: var(--color-white);
+  overflow: hidden;
+}
+
+/* =========================================
+   GLOBAL SECTION HEADING (SHARED)
+========================================= */
+#smpk-josh .smpk-section-heading {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto 88px;
+  text-align: center;
+}
+
+#smpk-josh .smpk-section-label {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+  color: var(--color-secondary);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+#smpk-josh .smpk-section-label::before,
+#smpk-josh .smpk-section-label::after {
+  content: '';
+  width: 40px;
+  height: 1.5px;
+  background: linear-gradient(90deg, transparent, var(--color-secondary));
+}
+
+#smpk-josh .smpk-section-label::after {
+  background: linear-gradient(270deg, transparent, var(--color-secondary));
+}
+
+#smpk-josh .smpk-section-title {
+  margin-bottom: 24px;
+  color: var(--color-primary);
+  font-size: clamp(2.2rem, 4.2vw, 3.8rem);
+  line-height: 1.2;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+#smpk-josh .smpk-text-highlight {
+  color: var(--color-text);
+  font-weight: 700;
+}
+
+#smpk-josh .smpk-text-highlight-gold {
+  color: var(--color-secondary);
+  font-weight: 700;
+}
+
+#smpk-josh .smpk-text-highlight-white{
+  color: var(--color-white);
+  font-weight: 700;
+}
+
+#smpk-josh .smpk-section-description {
+  color: var(--color-text-soft);
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin: 0 auto;
+}
+
+/* =========================================
+   ABOUT GRID & IMAGE FRAME
+========================================= */
+#smpk-josh .smpk-about-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 80px;
+  align-items: center;
+}
+
+#smpk-josh .smpk-about-image-wrapper {
+  position: relative;
+  padding: 20px;
+}
+
+/* Luxury Frame Layout behind the Image */
+#smpk-josh .smpk-about-image-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 85%;
+  height: 90%;
+  background-color: var(--color-accent-light);
+  border-radius: 20px;
+  z-index: 1;
+}
+
+#smpk-josh .smpk-about-image {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  z-index: 2;
+  box-shadow: 0 30px 60px rgba(90, 15, 20, 0.12);
+  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+#smpk-josh .smpk-about-image-wrapper:hover .smpk-about-image {
+  transform: translateY(-8px);
+}
+
+#smpk-josh .smpk-about-image img {
+  width: 100%;
+  height: 760px;
+  object-fit: cover;
+  display: block;
+}
+
+/* =========================================
+   ABOUT CONTENT AREA
+========================================= */
+#smpk-josh .smpk-about-content {
+  position: relative;
+}
+
+#smpk-josh .smpk-about-mini {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 24px;
+  padding: 8px 18px;
+  border-radius: 10px;
+  background: rgba(90, 15, 20, 0.05);
+  border: 1px solid rgba(90, 15, 20, 0.08);
+  color: var(--color-primary-soft);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+#smpk-josh .smpk-mini-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--color-secondary);
+  border-radius: 50%;
+}
+
+#smpk-josh .smpk-about-title {
+  margin-bottom: 24px;
+  color: var(--color-primary);
+  font-size: clamp(1.8rem, 2.8vw, 2.6rem);
+  line-height: 1.25;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+#smpk-josh .smpk-about-text {
+  margin-bottom: 40px;
+  color: var(--color-text-soft);
+  font-size: 1.05rem;
+  line-height: 1.85;
+}
+
+/* =========================================
+   VISI & MISI CARDS (PREMIUM STRUCTURAL)
+========================================= */
+#smpk-josh .smpk-about-cards {
+  display: grid;
+  gap: 20px;
+}
+
+#smpk-josh .smpk-about-card {
+  position: relative;
+  display: flex;
+  background: var(--color-white);
+  border-radius: 0 20px 20px 0;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.03);
+  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  overflow: hidden;
+}
+
+/* Sleek Lateral Accent Badge Instead of Top Bar */
+#smpk-josh .smpk-about-card .smpk-card-accent {
+  width: 5px;
+  background: var(--color-gradient);
+  transition: width 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+#smpk-josh .smpk-about-card .smpk-card-body {
+  padding: 24px 32px;
+  flex: 1;
+}
+
+#smpk-josh .smpk-about-card:hover {
+  transform: translateX(6px);
+  box-shadow: 0 20px 45px rgba(90, 15, 20, 0.06);
+  border-color: rgba(212, 164, 55, 0.2);
+}
+
+#smpk-josh .smpk-about-card:hover .smpk-card-accent {
+  width: 8px;
+}
+
+#smpk-josh .smpk-about-card h3 {
+  margin-bottom: 10px;
+  color: var(--color-primary);
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+#smpk-josh .smpk-about-card p {
+  color: var(--color-text-soft);
+  font-size: 0.98rem;
+  line-height: 1.75;
+  margin: 0;
+}
+
+/* =========================================
+   CORE VALUES SECTION
+========================================= */
+#smpk-josh .smpk-values-section {
+  position: relative;
+  padding: 80px 0;
+  background: var(--color-gradient);
+}
+
+#smpk-josh .smpk-values-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+/* =========================================
+   CORE VALUE CARDS
+========================================= */
+#smpk-josh .smpk-value-card {
+  position: relative;
+  background: var(--color-accent-light);
+  padding: 40px 32px;
+  border-radius: 24px;
+  border: 1px solid rgba(0, 0, 0, 0.02);
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.02);
+  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Sophisticated Circular Icon Frame */
+#smpk-josh .smpk-value-icon-box {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  background: rgba(90, 15, 20, 0.05);
+  color: var(--color-primary);
+  margin-bottom: 28px;
+  transition: all 0.4s ease;
+}
+
+#smpk-josh .smpk-value-icon-box svg{
+padding: 10px;
+  fill: var(--color-primary);
+}
+
+
+#smpk-josh .smpk-value-card h3 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 14px;
+  letter-spacing: -0.01em;
+}
+
+#smpk-josh .smpk-value-card p {
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: var(--color-text-soft);
+  margin: 0;
+}
+
+/* Value Cards Hover States */
+#smpk-josh .smpk-value-card:hover {
+  transform: translateY(-8px);
+  background: rgba(0,0,0,0.2);
+  box-shadow: 0 25px 50px rgba(90, 15, 20, 0.15);
+}
+
+#smpk-josh .smpk-value-card:hover .smpk-value-icon-box {
+  background: rgba(255, 255, 255, 0.15);
+  color: var(--color-secondary-light);
+  transform: scale(1.05);
+}
+
+#smpk-josh .smpk-value-card:hover .smpk-value-icon-box svg {
+  fill: var(--color-secondary-light);
+}
+
+#smpk-josh .smpk-value-card:hover h3 {
+  color: var(--color-white);
+}
+
+#smpk-josh .smpk-value-card:hover p {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* =========================================
+   RESPONSIVE DESIGN
+========================================= */
+@media screen and (max-width: 1200px) {
+  #smpk-josh .smpk-values-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  #smpk-josh .smpk-about-grid {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+
+  #smpk-josh .smpk-about-image img {
+    height: 520px;
+  }
+  
+  #smpk-josh .smpk-about-image-backdrop {
+    width: 90%;
+    height: 88%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #smpk-josh .smpk-about-section {
+    padding: 100px 0;
+  }
+  
+  #smpk-josh .smpk-values-section {
+    padding: 100px 0;
+  }
+
+  #smpk-josh .smpk-section-heading {
+    margin-bottom: 56px;
+  }
+
+  #smpk-josh .smpk-about-image img {
+    height: 380px;
+  }
+
+  #smpk-josh .smpk-about-card .smpk-card-body {
+    padding: 24px;
+  }
+
+  #smpk-josh .smpk-values-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  #smpk-josh .smpk-value-card {
+    padding: 32px 24px;
+  }
+}
+
+/* =========================================
+   ACTIVITIES SECTION
+========================================= */
+#smpk-josh .smpk-activities-section {
+  position: relative;
+  padding: 80px 0;
+  background: var(--color-white);
+}
+
+/* =========================================
+   ACTIVITIES GRID
+========================================= */
+#smpk-josh .smpk-activities-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 32px;
+  margin-bottom: 60px;
+}
+
+/* =========================================
+   ACTIVITY CARD
+========================================= */
+#smpk-josh .smpk-activity-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 40px 36px;
+  border-radius: 24px;
+  background: var(--color-white);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.02);
+  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  overflow: hidden;
+}
+
+#smpk-josh .smpk-activity-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(212, 164, 55, 0.25);
+  box-shadow: 0 24px 50px rgba(90, 15, 20, 0.06);
+}
+
+/* Elegant Accent Line */
+#smpk-josh .smpk-activity-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 4px;
+  background: var(--color-gradient);
+  transition: width 0.4s ease;
+}
+
+#smpk-josh .smpk-activity-card:hover::after {
+  width: 100%;
+}
+
+/* =========================================
+   PREMIUM LOGO CONTAINER
+========================================= */
+#smpk-josh .smpk-activity-logo-wrapper {
+  position: relative;
+  height: 64px; /* Batas tinggi ideal logo institusional */
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Aliansi kiri yang rapi */
+  margin-bottom: 28px;
+}
+
+/* Logo Image Handler */
+#smpk-josh .smpk-activity-logo {
+  max-height: 100%;
+  max-width: 160px;
+  object-fit: contain; /* Menjaga rasio logo agar tidak gepeng */
+  filter: grayscale(10%) contrast(95%); /* Sentuhan editorial lembut */
+  transition: all 0.4s ease;
+}
+
+#smpk-josh .smpk-activity-card:hover .smpk-activity-logo {
+  transform: scale(1.03);
+  filter: grayscale(0%) contrast(100%);
+}
+
+/* Fallback Smart Placeholder Styling */
+#smpk-josh .smpk-logo-placeholder {
+  display: none; /* Disembunyikan, aktif otomatis melalui script onerror jika gambar kosong */
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  padding: 0 16px;
+  border-radius: 10px;
+  background: rgba(90, 15, 20, 0.04);
+  border: 1px dashed rgba(90, 15, 20, 0.15);
+  color: var(--color-primary-soft);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* =========================================
+   TYPOGRAPHY & CONTENT
+========================================= */
+#smpk-josh .smpk-activity-content h3 {
+  margin-bottom: 12px;
+  color: var(--color-primary);
+  font-size: 1.3rem;
+  line-height: 1.35;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+#smpk-josh .smpk-activity-content p {
+  color: var(--color-text-soft);
+  font-size: 0.98rem;
+  line-height: 1.75;
+  margin: 0;
+}
+
+/* =========================================
+   CALL TO ACTION BUTTON CENTER WRAPPER
+========================================= */
+#smpk-josh .smpk-cta-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 20px;
+}
+
+/* =========================================
+   RESPONSIVE DESIGN
+========================================= */
+@media screen and (max-width: 1024px) {
+  #smpk-josh .smpk-activities-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #smpk-josh .smpk-activities-section {
+    padding: 100px 0;
+  }
+  
+  #smpk-josh .smpk-activities-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  #smpk-josh .smpk-activity-card {
+    padding: 36px 28px;
+  }
+
+  #smpk-josh .smpk-activity-logo-wrapper {
+    margin-bottom: 22px;
+    height: 56px;
+  }
+}
+
+/* =========================================
+   ACHIEVEMENT SECTION
+========================================= */
+
+#smpk-josh .smpk-achievement-section{
+  position:relative;
+  padding:100px 0;
+  overflow:hidden;
+
+  background:
+    linear-gradient(
+      135deg,
+      #3f0b0f 0%,
+      #5a0f14 30%,
+      #841c23 100%
+    );
+}
+
+
+/* decorative glow */
+
+#smpk-josh .smpk-achievement-section::before{
+  content:'';
+
+  position:absolute;
+  top:-180px;
+  left:-180px;
+
+  width:420px;
+  height:420px;
+
+  border-radius:50%;
+
+  background:
+    radial-gradient(
+      rgba(212,164,55,0.14),
+      transparent 70%
+    );
+
+  pointer-events:none;
+}
+
+
+/* =========================================
+   ACHIEVEMENT GRID
+========================================= */
+
+#smpk-josh .smpk-achievement-grid{
+  display:grid;
+  grid-template-columns:
+    repeat(4,minmax(0,1fr));
+
+  gap:28px;
+}
+
+
+/* =========================================
+   ACHIEVEMENT ITEM
+========================================= */
+
+#smpk-josh .smpk-achievement-item{
+  position:relative;
+
+  padding:44px 24px;
+
+  text-align:center;
+
+  border-radius:30px;
+
+  background:
+    rgba(255,255,255,0.08);
+
+  border:
+    1px solid rgba(255,255,255,0.08);
+
+  backdrop-filter:blur(18px);
+
+  overflow:hidden;
+
+  transition:
+    transform .45s ease,
+    border-color .45s ease,
+    background .45s ease;
+}
+
+
+/* hover */
+
+#smpk-josh .smpk-achievement-item:hover{
+  transform:translateY(-8px);
+
+  background:
+    rgba(255,255,255,0.12);
+
+  border-color:
+    rgba(212,164,55,0.25);
+}
+
+
+/* top accent */
+
+#smpk-josh .smpk-achievement-item::before{
+  content:'';
+
+  position:absolute;
+  top:0;
+  left:0;
+
+  width:100%;
+  height:4px;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(212,164,55,0),
+      rgba(212,164,55,1),
+      rgba(212,164,55,0)
+    );
+}
+
+
+/* =========================================
+   ACHIEVEMENT NUMBER
+========================================= */
+
+#smpk-josh .smpk-achievement-item h3{
+  margin-bottom:14px;
+
+  color:var(--color-secondary);
+
+  font-size:clamp(2.5rem,4vw,4rem);
+  line-height:1;
+  font-weight:800;
+  letter-spacing:-0.05em;
+}
+
+
+/* =========================================
+   ACHIEVEMENT TEXT
+========================================= */
+
+#smpk-josh .smpk-achievement-item p{
+  color:rgba(255,255,255,0.82);
+
+  font-size:1rem;
+  line-height:1.7;
+  font-weight:500;
+}
+
+
+/* =========================================
+   FACILITY SECTION
+========================================= */
+#smpk-josh .smpk-facility-section {
+  position: relative;
+  padding: 80px 0;
+  overflow: hidden;
+  background: var(--color-white, #ffffff);
+}
+
+/* Decorative Subtle Ambient Light */
+#smpk-josh .smpk-facility-section::before {
+  content: '';
+  position: absolute;
+  right: -150px;
+  bottom: -150px;
+  width: 550px;
+  height: 550px;
+  border-radius: 50%;
+  background: radial-gradient(rgba(212, 164, 55, 0.06), transparent 70%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* =========================================
+   FACILITY GRID
+========================================= */
+#smpk-josh .smpk-facility-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 36px;
+  position: relative;
+  z-index: 2;
+}
+
+/* =========================================
+   FACILITY CARD (PREMIUM IMPRESSION)
+========================================= */
+#smpk-josh .smpk-facility-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 28px;
+  background: #f8f9fa;
+  isolation: isolate;
+  cursor: pointer;
+  /* Menggunakan aspek rasio modern agar kartu selalu proporsional */
+  aspect-ratio: 16 / 10; 
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.03);
+  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), 
+              box-shadow 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Image Container Frame */
+#smpk-josh .smpk-facility-img-container {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+#smpk-josh .smpk-facility-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transform: scale(1.01);
+  transition: transform 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Cinematic Dark Gradient Overlay (Lebih pekat di bawah untuk teks) */
+#smpk-josh .smpk-facility-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient( to top, rgba(90, 15, 20, 0.9) 0%, rgba(15, 17, 56, 0.2) 45%, rgba(0, 0, 0, 0.00) 100% );
+  transition: opacity 0.5s ease;
+}
+
+/* Gold Gradient Flare Accent */
+#smpk-josh .smpk-facility-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  opacity: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(212, 164, 55, 0.15),
+    transparent 65%
+  );
+  transition: opacity 0.5s ease;
+}
+
+/* --- INTERACTIVE CARD HOVER STATES --- */
+#smpk-josh .smpk-facility-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 25px 55px rgba(15, 17, 56, 0.15);
+}
+
+#smpk-josh .smpk-facility-card:hover img {
+  transform: scale(1.06); /* Hover zoom yang sangat smooth */
+}
+
+#smpk-josh .smpk-facility-card:hover::after {
+  opacity: 1;
+}
+
+/* =========================================
+   FACILITY CONTENT & MICROMOTION
+========================================= */
+#smpk-josh .smpk-facility-content {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 3;
+  width: 100%;
+  padding: 42px;
+  box-sizing: border-box;
+}
+
+#smpk-josh .smpk-facility-content h3 {
+  margin-bottom: 12px;
+  color: #ffffff;
+  font-size: 1.5rem;
+  line-height: 1.25;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  transform: translateY(0);
+  transition: transform 0.45s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+#smpk-josh .smpk-facility-content p {
+  color: var(--color-secondary-light);
+  font-size: 0.96rem;
+  line-height: 1.7;
+  margin: 0;
+  text-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+  
+  /* Efek reveal sembunyi halus di awal */
+  opacity: 0.85;
+  transform: translateY(8px);
+  transition: transform 0.45s cubic-bezier(0.25, 1, 0.5, 1), 
+              opacity 0.45s ease;
+}
+
+/* Saat kartu di-hover, teks bergeser naik secara sinematik */
+#smpk-josh .smpk-facility-card:hover .smpk-facility-content h3 {
+  transform: translateY(-4px);
+}
+
+#smpk-josh .smpk-facility-card:hover .smpk-facility-content p {
+  opacity: 1;
+  transform: translateY(-4px);
+}
+
+/* =========================================
+   RESPONSIVE LAYOUTS
+========================================= */
+@media screen and (max-width: 991px) {
+  #smpk-josh .smpk-facility-grid {
+    gap: 24px;
+  }
+  
+  #smpk-josh .smpk-facility-content {
+    padding: 32px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #smpk-josh .smpk-facility-section {
+    padding: 100px 0;
+  }
+  
+  #smpk-josh .smpk-facility-grid {
+    grid-template-columns: 1fr; /* Kolom tunggal pada mobile */
+    gap: 24px;
+  }
+  
+  #smpk-josh .smpk-facility-card {
+    aspect-ratio: 16 / 11; /* Sedikit lebih tinggi pada layar kecil */
+  }
+
+  #smpk-josh .smpk-facility-content h3 {
+    font-size: 1.35rem;
+  }
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media screen and (max-width:991px){
+
+  #smpk-josh .smpk-achievement-grid{
+    grid-template-columns:
+      repeat(2,minmax(0,1fr));
+  }
+
+  #smpk-josh .smpk-facility-grid{
+    grid-template-columns:1fr;
+  }
+
+}
+
+
+@media screen and (max-width:768px){
+
+  #smpk-josh .smpk-achievement-section{
+    padding:100px 0;
+  }
+
+  #smpk-josh .smpk-achievement-grid{
+    gap:20px;
+  }
+
+  #smpk-josh .smpk-achievement-item{
+    padding:36px 20px;
+    border-radius:24px;
+  }
+
+  #smpk-josh .smpk-achievement-item h3{
+    font-size:2.6rem;
+  }
+
+}
+
+/* =========================================
+   NEWS SECTION
+========================================= */
+
+#smpk-josh .smpk-news-section{
+  position:relative;
+  padding:80px 0;
+  overflow:hidden;
+
+  background:
+    linear-gradient(
+      180deg,
+      #ffffff 0%,
+      #faf7f2 100%
+    );
+}
+
+
+/* decorative glow */
+
+#smpk-josh .smpk-news-section::before{
+  content:'';
+
+  position:absolute;
+  top:-180px;
+  left:-180px;
+
+  width:480px;
+  height:480px;
+
+  border-radius:50%;
+
+  background:
+    radial-gradient(
+      rgba(212,164,55,0.08),
+      transparent 70%
+    );
+
+  pointer-events:none;
+}
+
+
+/* =========================================
+   NEWS GRID
+========================================= */
+
+#smpk-josh .smpk-news-grid{
+  display:grid;
+  grid-template-columns:1.15fr .85fr;
+  gap:34px;
+  align-items:stretch;
+}
+
+
+/* =========================================
+   NEWS LEFT
+========================================= */
+
+#smpk-josh .smpk-news-featured{
+  position:relative;
+}
+
+
+/* =========================================
+   NEWS RIGHT
+========================================= */
+
+#smpk-josh .smpk-news-sidebar{
+  display:grid;
+  gap:34px;
+}
+
+
+/* =========================================
+   NEWS CARD
+========================================= */
+
+#smpk-josh .smpk-news-card{
+  position:relative;
+
+  overflow:hidden;
+
+  border-radius:34px;
+
+  background:#fff;
+
+  border:
+    1px solid rgba(0,0,0,0.05);
+
+  box-shadow:
+    0 14px 40px rgba(0,0,0,0.05);
+
+  transition:
+    transform .45s ease,
+    box-shadow .45s ease,
+    border-color .45s ease;
+}
+
+
+/* hover */
+
+#smpk-josh .smpk-news-card:hover{
+  transform:translateY(-8px);
+
+  border-color:
+    rgba(212,164,55,0.18);
+
+  box-shadow:
+    0 24px 60px rgba(0,0,0,0.08);
+}
+
+
+/* =========================================
+   NEWS THUMBNAIL
+========================================= */
+
+#smpk-josh .smpk-news-thumbnail{
+  position:relative;
+  overflow:hidden;
+
+  background:#ececec;
+}
+
+
+/* featured thumbnail */
+
+#smpk-josh .smpk-news-featured
+.smpk-news-thumbnail{
+  height:420px;
+}
+
+
+/* sidebar thumbnail */
+
+#smpk-josh .smpk-news-sidebar
+.smpk-news-thumbnail{
+  height:220px;
+}
+
+
+/* image */
+
+#smpk-josh .smpk-news-thumbnail img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+
+  transition:transform 1s ease;
+}
+
+
+/* hover zoom */
+
+#smpk-josh .smpk-news-card:hover
+.smpk-news-thumbnail img{
+  transform:scale(1.08);
+}
+
+
+/* dark overlay */
+
+#smpk-josh .smpk-news-thumbnail::before{
+  content:'';
+
+  position:absolute;
+  inset:0;
+
+  z-index:1;
+
+  background:
+    linear-gradient(
+      to top,
+      rgba(0,0,0,0.5) 0%,
+      rgba(0,0,0,0.05) 60%
+    );
+}
+
+
+/* =========================================
+   NEWS CONTENT
+========================================= */
+
+#smpk-josh .smpk-news-content{
+  position:relative;
+  padding:34px;
+}
+
+
+/* =========================================
+   NEWS META
+========================================= */
+
+#smpk-josh .smpk-news-meta{
+  display:flex;
+  align-items:center;
+  gap:14px;
+
+  margin-bottom:18px;
+
+  color:var(--color-secondary);
+
+  font-size:.8rem;
+  font-weight:700;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+
+
+/* =========================================
+   NEWS TITLE
+========================================= */
+
+#smpk-josh .smpk-news-content h3{
+  margin-bottom:18px;
+
+  color:var(--color-primary);
+
+  font-size:1.7rem;
+  line-height:1.3;
+  font-weight:800;
+
+  transition:color .35s ease;
+}
+
+
+/* sidebar title */
+
+#smpk-josh .smpk-news-sidebar
+.smpk-news-content h3{
+  font-size:1.28rem;
+}
+
+
+/* hover */
+
+#smpk-josh .smpk-news-card:hover
+.smpk-news-content h3{
+  color:#8c2028;
+}
+
+
+/* =========================================
+   NEWS TEXT
+========================================= */
+
+#smpk-josh .smpk-news-content p{
+  color:var(--color-text-soft);
+
+  font-size:1rem;
+  line-height:1.9;
+}
+
+
+/* =========================================
+   READ MORE
+========================================= */
+
+#smpk-josh .smpk-news-link{
+  position:relative;
+
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+
+  margin-top:24px;
+
+  color:var(--color-primary);
+
+  font-size:.92rem;
+  font-weight:700;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+}
+
+
+/* animated line */
+
+#smpk-josh .smpk-news-link::after{
+  content:'';
+
+  width:28px;
+  height:1px;
+
+  background:currentColor;
+
+  transition:width .35s ease;
+}
+
+
+/* hover */
+
+#smpk-josh .smpk-news-card:hover
+.smpk-news-link::after{
+  width:48px;
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media screen and (max-width:991px){
+
+  #smpk-josh .smpk-news-grid{
+    grid-template-columns:1fr;
+  }
+
+}
+
+
+@media screen and (max-width:768px){
+
+  #smpk-josh .smpk-news-section{
+    padding:110px 0;
+  }
+
+  #smpk-josh .smpk-news-featured
+  .smpk-news-thumbnail{
+    height:300px;
+  }
+
+  #smpk-josh .smpk-news-sidebar
+  .smpk-news-thumbnail{
+    height:240px;
+  }
+
+  #smpk-josh .smpk-news-content{
+    padding:28px;
+  }
+
+  #smpk-josh .smpk-news-content h3{
+    font-size:1.35rem;
+  }
+
+}
+
+/* =========================================
+   CTA SECTION
+========================================= */
+
+#smpk-josh .smpk-cta-section{
+  position:relative;
+  padding:80px 0;
+  overflow:hidden;
+
+  background:
+    linear-gradient(
+      135deg,
+      #2a0609 0%,
+      #5a0f14 35%,
+      #841c23 100%
+    );
+}
+
+
+/* =========================================
+   CTA ORNAMENT
+========================================= */
+
+#smpk-josh .smpk-cta-orb{
+  position:absolute;
+  border-radius:50%;
+  pointer-events:none;
+}
+
+
+/* orb 1 */
+
+#smpk-josh .smpk-cta-orb-1{
+  top:-220px;
+  left:-220px;
+
+  width:520px;
+  height:520px;
+
+  background:
+    radial-gradient(
+      rgba(212,164,55,0.18),
+      transparent 70%
+    );
+}
+
+
+/* orb 2 */
+
+#smpk-josh .smpk-cta-orb-2{
+  right:-180px;
+  bottom:-180px;
+
+  width:420px;
+  height:420px;
+
+  background:
+    radial-gradient(
+      rgba(255,255,255,0.08),
+      transparent 70%
+    );
+}
+
+
+/* =========================================
+   CTA BOX
+========================================= */
+
+#smpk-josh .smpk-cta-box{
+  position:relative;
+  z-index:3;
+
+  max-width:980px;
+  margin:0 auto;
+
+  padding:100px 80px;
+
+  text-align:center;
+
+  border-radius:42px;
+
+  background:
+    rgba(255,255,255,0.08);
+
+  border:
+    1px solid rgba(255,255,255,0.08);
+
+  backdrop-filter:blur(18px);
+
+  overflow:hidden;
+}
+
+
+/* top glow */
+
+#smpk-josh .smpk-cta-box::before{
+  content:'';
+
+  position:absolute;
+  top:0;
+  left:50%;
+
+  transform:translateX(-50%);
+
+  width:240px;
+  height:4px;
+
+  border-radius:999px;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(212,164,55,0),
+      rgba(212,164,55,1),
+      rgba(212,164,55,0)
+    );
+}
+
+
+/* inner light */
+
+#smpk-josh .smpk-cta-box::after{
+  content:'';
+
+  position:absolute;
+  inset:0;
+
+  background:
+    radial-gradient(
+      circle at top,
+      rgba(255,255,255,0.08),
+      transparent 65%
+    );
+
+  pointer-events:none;
+}
+
+
+/* =========================================
+   CTA LABEL
+========================================= */
+
+#smpk-josh .smpk-cta-label{
+  position:relative;
+  z-index:2;
+
+  display:inline-flex;
+  align-items:center;
+  gap:12px;
+
+  margin-bottom:28px;
+
+  padding:12px 22px;
+
+  border-radius:15px;
+
+  background:
+    rgba(255,255,255,0.08);
+
+  border:
+    1px solid rgba(255,255,255,0.08);
+
+  color:var(--color-secondary);
+
+  font-size:.82rem;
+  font-weight:700;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+}
+
+
+/* =========================================
+   CTA TITLE
+========================================= */
+
+#smpk-josh .smpk-cta-title{
+  position:relative;
+  z-index:2;
+
+  max-width:760px;
+  margin:0 auto 28px;
+
+  color:#fff;
+
+  font-size:clamp(2rem,6vw,4rem);
+  line-height:1.05;
+  font-weight:800;
+  letter-spacing:-0.05em;
+}
+
+
+/* =========================================
+   CTA DESCRIPTION
+========================================= */
+
+#smpk-josh .smpk-cta-description{
+  position:relative;
+  z-index:2;
+
+  max-width:720px;
+  margin:0 auto 48px;
+
+  color:rgba(255,255,255,0.82);
+
+  font-size:1rem;
+  line-height:1.5;
+}
+
+
+/* =========================================
+   CTA ACTIONS
+========================================= */
+
+#smpk-josh .smpk-cta-actions{
+  position:relative;
+  z-index:2;
+
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:18px;
+
+  margin-bottom:42px;
+}
+
+
+/* =========================================
+   BUTTON SYSTEM
+========================================= */
+
+#smpk-josh .smpk-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+
+  min-width:240px;
+
+  padding:18px 34px;
+
+  border-radius:15px;
+
+  font-size:.95rem;
+  font-weight:800;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+
+  transition:
+    transform .35s ease,
+    background .35s ease,
+    border-color .35s ease,
+    box-shadow .35s ease;
+}
+
+
+/* primary */
+
+#smpk-josh .smpk-btn-primary{
+  background:var(--color-secondary);
+
+  color:var(--color-text);
+
+  box-shadow:
+    0 14px 40px rgba(212,164,55,0.28);
+}
+
+#smpk-josh .smpk-btn-primary:hover{
+  transform:translateY(-5px);
+
+  background:#e2b54c;
+
+  box-shadow:
+    0 20px 50px rgba(212,164,55,0.36);
+}
+
+
+/* outline */
+
+#smpk-josh .smpk-btn-outline{
+  background:
+    rgba(255,255,255,0.06);
+
+  border:
+    1px solid rgba(255,255,255,0.12);
+
+  color:#fff;
+
+  backdrop-filter:blur(10px);
+}
+
+#smpk-josh .smpk-btn-outline:hover{
+  transform:translateY(-5px);
+
+  background:
+    rgba(255,255,255,0.12);
+}
+
+
+/* =========================================
+   TRUST POINT
+========================================= */
+
+#smpk-josh .smpk-cta-trust{
+  position:relative;
+  z-index:2;
+
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:24px;
+}
+
+
+/* trust item */
+
+#smpk-josh .smpk-cta-trust-item{
+  color:rgba(255,255,255,0.72);
+
+  font-size:.92rem;
+  font-weight:500;
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media screen and (max-width:768px){
+
+  #smpk-josh .smpk-cta-section{
+    padding:120px 0;
+  }
+
+  #smpk-josh .smpk-cta-box{
+    padding:70px 30px;
+    border-radius:30px;
+  }
+
+  #smpk-josh .smpk-cta-title{
+    font-size:2.8rem;
+  }
+
+  #smpk-josh .smpk-cta-description{
+    font-size:1rem;
+    line-height:1.9;
+  }
+
+  #smpk-josh .smpk-btn{
+    width:100%;
+  }
+
+  #smpk-josh .smpk-cta-trust{
+    flex-direction:column;
+    gap:14px;
+  }
+
+}

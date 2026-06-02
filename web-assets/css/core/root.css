@@ -1,0 +1,116 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Fjalla+One&family=Manrope:wght@200..800&display=swap');
+
+
+/* =========================
+   GRID SYSTEM    
+========================= */
+
+.grid {
+  display: grid;
+  gap: 20px;
+}
+
+/* =========================
+   GRID 2
+========================= */
+
+.grid-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+@media (max-width: 768px) {
+  .grid-2 {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+}
+
+/* =========================
+   GRID 3
+========================= */
+
+.grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+@media (max-width: 992px) {
+  .grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
+  .grid-3 {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+}
+
+/* =========================
+   GRID 4
+========================= */
+
+.grid-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+@media (max-width: 992px) {
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
+  .grid-4 {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+}
+
+/* =========================
+   GRID 5
+========================= */
+
+.grid-5 {
+  grid-template-columns: repeat(5, 1fr);
+}
+
+@media (max-width: 992px) {
+  .grid-5 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .grid-5 {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .grid-5 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================
+   VARIABLES & ROOT CONTAINER
+========================= */
+#sby-priest {
+  /* Pindahkan variabel ke sini agar spesifik dan tidak tertimpa tema bawaan */
+  --color-primary: #006b3c;
+  --color-primary-dark: #005731;
+  --color-secondary: #e3a91a;
+  --color-accent: #2e8bcb;
+  --color-bg-light: #f9f8f7;
+  --color-bg-light-gold: #f2efeb;
+  --color-text: #292929;
+  --color-text-light: #e4e4e4;
+  --color-gradient: linear-gradient(135deg, #006b3c 0%, #009c47 20%, #28a661 100%);
+}
+
+#sby-priest * { 
+  box-sizing: border-box; 
+}
