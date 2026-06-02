@@ -1,6 +1,6 @@
-/* =========================================
-   HEADER / NAVBAR (PREMIUM ELEVATED)
-========================================= */
+/* =========================
+   HEADER / NAVBAR (PREMIUM)
+========================= */
 #smpk-josh .smpk-header {
   position: fixed;
   top: 0;
@@ -12,13 +12,12 @@
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* State saat layar di-scroll (Sticky) */
 #smpk-josh .smpk-header.is-sticky {
-  padding: 14px 0;
-  background: rgba(90, 15, 20, 0.85); /* Navy mewah */
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  padding: 12px 0;
+  background: var(--color-primary); /* Navy yang lebih elegan */
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
   backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px); /* Dukungan Safari */
 }
 
 #smpk-josh .header-inner {
@@ -28,9 +27,9 @@
   width: 100%;
 }
 
-/* --- LOGO OPTIMIZATION --- */
+/* --- PERBAIKAN LOGO --- */
 #smpk-josh .logo-img {
-  width: 180px;
+  width: 250px;
   display: flex;
   align-items: center;
   transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -40,24 +39,26 @@
   width: 100%;
   height: auto;
   display: block;
+  /* Tambahkan 2 baris ini agar animasi hover mulus */
   transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), 
               filter 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-  will-change: transform, filter;
+  will-change: transform, filter; /* Optimasi performa render */
 }
 
+
 #smpk-josh .logo-img:hover img {
-  transform: scale(1.02) translateY(-2px); 
-  filter: drop-shadow(0 8px 20px rgba(224, 196, 159, 0.25)); 
+  transform: scale(1.02) translateY(-3px); 
+  filter: drop-shadow(0 8px 15px rgba(224, 196, 159, 0.3)); 
 }
 
 #smpk-josh .smpk-header.is-sticky .logo-img {
-  width: 170px; /* Mengecil halus saat scroll */
+  width: 155px;
 }
 
-/* --- NAVIGATION LINKS --- */
+/* --- NAVIGASI UTAMA --- */
 #smpk-josh .header-nav {
   display: flex;
-  gap: 32px;
+  gap: 35px;
   justify-content: flex-end;
   align-items: center;
   flex: 1;
@@ -65,51 +66,57 @@
 
 #smpk-josh .nav-item {
   position: relative;
-  padding: 15px 0; /* Area aman agar kursor tidak lepas saat menuju dropdown */
+  /* Padding vertikal agar hover dropdown tidak terputus saat kursor turun */
+  padding: 20px 0; 
 }
 
 #smpk-josh .nav-item > a {
   position: relative;
   color: #ffffff;
   text-decoration: none;
-  font-size: 14px; 
+  font-size: 14px; /* Sedikit diperbesar agar proporsional */
   font-weight: 600;
-  letter-spacing: 0.5px;
+  letter-spacing: 1px;
   display: flex;
   align-items: center;
   gap: 6px;
   transition: color 0.3s ease;
 }
 
-/* Bukan Halaman Utama (Is Not Home) */
+/* 1. Paksa background muncul dari awal jika bukan di homepage */
 #smpk-josh .smpk-header.is-not-home {
-  background: rgba(25, 26, 83, 1) !important;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-  padding: 16px 0;
+  background: var(--color-gradient) !important;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
+/* 2. Pastikan teks navigasi tetap terbaca (Putih di atas background Navy) */
 #smpk-josh .smpk-header.is-not-home .nav-item > a {
   color: #ffffff !important;
 }
 
-/* Animasi Ikon Panah */
+#smpk-josh .smpk-header.is-sticky .nav-item > a {
+  font-size: 13px;
+  font-weight: 500;
+}
+
+/* Animasi Ikon Panah Dropdown */
 #smpk-josh .dropdown-icon {
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.3s ease;
 }
 #smpk-josh .nav-item:hover .dropdown-icon {
-  transform: rotate(180deg);
+  transform: rotate(180deg); /* Panah berputar saat di-hover */
   stroke: var(--color-secondary, #e0c49f);
 }
 
-/* Animasi Garis Bawah saat Hover */
+/* Animasi Garis Bawah (Hover Utama) */
 #smpk-josh .nav-item > a::after {
   content: '';
   position: absolute;
   width: 0;
   height: 2px;
-  bottom: -4px;
+  bottom: -6px;
   left: 0;
-  background-color: var(--color-secondary, #e0c49f);
+  background-color: var(--color-secondary, #e0c49f); /* Warna emas */
   transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -121,47 +128,216 @@
   color: var(--color-secondary, #e0c49f);
 }
 
-/* =========================================
-   NEW: DROPDOWN MENU ENGINE
-========================================= */
+
+/* --- DROPDOWN MENU PREMIUM --- */
 #smpk-josh .dropdown-menu {
   position: absolute;
-  top: 100%;
-  left: 50%;
-  transform: translateX(-50%) translateY(15px);
+  top: 100%; /* Muncul persis di bawah padding item menu */
+  left: -20px; /* Sedikit menjorok ke kiri agar teks sejajar */
   background: #ffffff;
-  min-width: 220px;
-  border-radius: 14px;
-  padding: 10px 0;
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.18);
-  border: 1px solid rgba(0, 0, 0, 0.04);
+  min-width: 240px;
+  border-radius: 12px;
+  padding: 12px 0;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0,0,0,0.05);
+  
+  /* Efek awal: Tak terlihat dan agak bergeser ke bawah */
   opacity: 0;
   visibility: hidden;
+  transform: translateY(15px);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  pointer-events: none; /* Mencegah trigger tidak sengaja saat sembunyi */
 }
 
-/* Munculkan Dropdown saat Hover */
-#smpk-josh .nav-item:hover .dropdown-menu {
+/* Memunculkan Dropdown saat Induk di-hover */
+#smpk-josh .nav-item.has-dropdown:hover .dropdown-menu {
   opacity: 1;
   visibility: visible;
-  transform: translateX(-50%) translateY(0);
-  pointer-events: auto;
+  transform: translateY(0);
 }
 
+/* Gaya Teks di dalam Dropdown */
 #smpk-josh .dropdown-menu a {
   display: block;
-  padding: 11px 24px;
-  color: #191a53; /* Warna navy dasar teks */
+  color: #333333;
+  padding: 12px 25px;
+  font-size: 14px;
+  font-weight: 500;
   text-decoration: none;
-  font-size: 13.5px;
-  font-weight: 600;
-  transition: all 0.25s ease;
-  text-align: left;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
 }
 
+/* Efek Hover Dropdown: Background dan teks geser halus */
 #smpk-josh .dropdown-menu a:hover {
-  background: rgba(25, 26, 83, 0.04);
-  color: var(--color-secondary, #cda76e); /* Emas saat hover sub-menu */
-  padding-left: 28px; /* Efek geser kanan estetik */
+  color: var(--color-primary, #191a53);
+  padding-left: 32px; /* Teks agak bergeser ke kanan (indikator visual) */
+  background: rgba(224, 196, 159, 0.15); /* Hint warna emas transparan di background */
+}
+
+/* =========================================
+   RESPONSIVE MOBILE MENU (MAX-WIDTH: 991px)
+========================================= */
+
+/* Sembunyikan tombol hamburger di layar Desktop */
+#smpk-josh .mobile-menu-toggle {
+  display: none;
+}
+
+@media screen and (max-width: 991px) {
+#smpk-josh .container{
+  padding:0 16px;
+}
+  
+  /* --- PENYESUAIAN LOGO --- */
+  #smpk-josh .logo-img {
+    width: 150px; /* Ukuran logo lebih kecil di HP */
+  }
+  #smpk-josh .smpk-header.is-sticky .logo-img {
+    width: 130px;
+  }
+
+  /* --- TOMBOL HAMBURGER --- */
+  #smpk-josh .mobile-menu-toggle {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 1001; /* Harus lebih tinggi dari z-index menu agar selalu bisa diklik */
+  }
+
+  #smpk-josh .mobile-menu-toggle .bar {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: var(--color-secondary, #e0c49f); /* Warna Emas */
+    border-radius: 3px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Animasi Hamburger Berubah Menjadi Silang (X) */
+  #smpk-josh .mobile-menu-toggle.is-active .bar:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+  }
+  #smpk-josh .mobile-menu-toggle.is-active .bar:nth-child(2) {
+    opacity: 0; /* Garis tengah menghilang */
+  }
+  #smpk-josh .mobile-menu-toggle.is-active .bar:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+  }
+
+  /* --- PANEL MENU MUNCUL DARI KANAN --- */
+#smpk-josh .header-nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+
+  transform: translateX(100%);
+
+  width: 80%;
+  max-width: 320px;
+  height: 100vh;
+
+  box-sizing: border-box;
+
+  background-color: var(--color-primary, #191a53);
+
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  padding: 100px 30px 30px;
+
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+  overflow-y: auto;
+
+  z-index: 999;
+}
+
+  /* Class pemicu menu muncul */
+  #smpk-josh .header-nav.is-active {
+  transform: translateX(0);
+  }
+
+  /* --- GAYA ITEM MENU DI DALAM PANEL --- */
+  #smpk-josh .nav-item {
+    width: 100%;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(224, 196, 159, 0.1); /* Garis batas samar */
+  }
+  
+  #smpk-josh .nav-item > a {
+    font-size: 14px;
+    justify-content: space-between; /* Pisahkan teks dan ikon panah ke ujung */
+    width: 100%;
+  }
+
+  /* Hilangkan efek garis bawah hover di versi mobile */
+  #smpk-josh .nav-item > a::after {
+    display: none; 
+  }
+
+  /* --- PENYESUAIAN DROPDOWN UNTUK MOBILE --- */
+  /* Di mobile, dropdown tidak melayang (absolute), tapi menumpuk ke bawah (accordion) */
+  #smpk-josh .dropdown-menu {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    background: transparent;
+    box-shadow: none;
+    border: none;
+    padding: 0;
+    margin-top: 0;
+    max-height: 0; /* Default tertutup */
+    overflow: hidden; /* Sembunyikan isinya */
+    transition: max-height 0.4s ease;
+  }
+
+  /* Mematikan hover bawaan desktop */
+  #smpk-josh .nav-item.has-dropdown:hover .dropdown-menu {
+    transform: none;
+  }
+
+  /* Tampilan list di dalam dropdown mobile */
+  #smpk-josh .dropdown-menu a {
+    color: #ffffff;
+    padding: 12px 15px 12px 20px;
+    font-size: 14px;
+    border-left: 2px solid var(--color-secondary, #e0c49f);
+    margin-top: 10px;
+    opacity: 0.8;
+  }
+  
+  #smpk-josh .dropdown-menu a:hover {
+    background: rgba(224, 196, 159, 0.15);
+    opacity: 1;
+	color:#ffffff !important;
+  }
+}
+
+/* =========================================
+   HEADER SCROLL FIX
+========================================= */
+
+#smpk-josh .smpk-header {
+  overflow: visible;
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+#smpk-josh .header-inner {
+  overflow: visible;
+}
+
+#smpk-josh .header-nav {
+  overflow:visible;
+}
+
+#smpk-josh .nav-item {
+  padding: 12px 0;
 }
