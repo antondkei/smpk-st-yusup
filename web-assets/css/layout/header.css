@@ -7,7 +7,7 @@
   left: 0;
   width: 100%;
   z-index: 1000;
-  padding: 30px 0;
+  padding: 20px 0;
   background: transparent;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -29,7 +29,7 @@
 
 /* --- PERBAIKAN LOGO --- */
 #smpk-josh .logo-img {
-  width: 250px;
+  width: 200px;
   display: flex;
   align-items: center;
   transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
