@@ -82,19 +82,24 @@
 // Blooger News
 
 
-async function smpkLoadNews(){
+// Fungsi pembantu untuk mengubah ukuran thumbnail Blogger menjadi High-Res
+function smpkResizeImage(url, targetSize) {
+  if (!url) return 'https://via.placeholder.com/800x600';
+  
+  // Menangani format /s72-c/, /s1600/, /w72-h72-p/, dll.
+  let highResUrl = url.replace(/\/s\d+(-[a-zA-Z0-9-]+)?\//, `/${targetSize}/`);
+  highResUrl = highResUrl.replace(/\/w\d+-h\d+[^/]*\//, `/${targetSize}/`);
+  
+  return highResUrl;
+}
 
-  const container =
-    document.getElementById('smpkNewsContainer');
+async function smpkLoadNews(){
+  const container = document.getElementById('smpkNewsContainer');
+  if(!container) return;
 
   try{
-
-    const response = await fetch(
-      '/feeds/posts/default?alt=json&max-results=3'
-    );
-
+    const response = await fetch('/feeds/posts/default?alt=json&max-results=3');
     const data = await response.json();
-
     const posts = data.feed.entry || [];
 
     if(!posts.length){
@@ -104,164 +109,87 @@ async function smpkLoadNews(){
     let html = '';
 
     /* =====================================
-       FEATURED POST
+       FEATURED POST (SISI KIRI - BESAR)
     ===================================== */
-
     const featured = posts[0];
-
-    const featuredTitle =
-      featured.title.$t;
-
-    const featuredLink =
-      featured.link.find(
-        link => link.rel === 'alternate'
-      ).href;
-
-    const featuredThumb =
-      featured.media$thumbnail
-      ? featured.media$thumbnail.url.replace(
-          '/s72-c/',
-          '/s1200/'
-        )
+    const featuredTitle = featured.title.$t;
+    const featuredLink = featured.link.find(link => link.rel === 'alternate').href;
+    
+    // Menggunakan fungsi pembersih gambar resolusi tinggi (1200px)
+    const featuredThumb = featured.media$thumbnail 
+      ? smpkResizeImage(featured.media$thumbnail.url, 's1200')
       : 'https://via.placeholder.com/1200x800';
 
-    const featuredSummary =
-      featured.summary
-      ? featured.summary.$t.replace(/<[^>]+>/g,'')
-          .substring(0,160)
+    const featuredSummary = featured.summary
+      ? featured.summary.$t.replace(/<[^>]+>/g,'').substring(0,160)
       : '';
 
     html += `
       <div class="smpk-news-featured">
-
         <article class="smpk-news-card">
-
-          <a class="smpk-news-thumbnail"
-             href="${featuredLink}">
-
-            <img src="${featuredThumb}"
-                 alt="${featuredTitle}"/>
-
+          <a class="smpk-news-thumbnail" href="${featuredLink}">
+            <img src="${featuredThumb}" alt="${featuredTitle}"/>
           </a>
-
           <div class="smpk-news-content">
-
             <div class="smpk-news-meta">
               <span>Berita Sekolah</span>
             </div>
-
             <h3>
-              <a href="${featuredLink}">
-                ${featuredTitle}
-              </a>
+              <a href="${featuredLink}">${featuredTitle}</a>
             </h3>
-
-            <p>
-              ${featuredSummary}...
-            </p>
-
-            <a class="smpk-news-link"
-               href="${featuredLink}">
-              Baca Selengkapnya
-            </a>
-
+            <p>${featuredSummary}...</p>
+            <a class="smpk-news-link" href="${featuredLink}">Baca Selengkapnya</a>
           </div>
-
         </article>
-
       </div>
     `;
 
-
     /* =====================================
-       SIDEBAR POSTS
+       SIDEBAR POSTS (SISI KANAN - 2 KECIL)
     ===================================== */
+    html += `<div class="smpk-news-sidebar">`;
 
-    html += `
-      <div class="smpk-news-sidebar">
-    `;
-
-    posts.slice(1).forEach(post=>{
-
+    posts.slice(1).forEach(post => {
       const title = post.title.$t;
-
-      const link =
-        post.link.find(
-          link => link.rel === 'alternate'
-        ).href;
-
-      const thumb =
-        post.media$thumbnail
-        ? post.media$thumbnail.url.replace(
-            '/s72-c/',
-            '/s800/'
-          )
+      const link = post.link.find(link => link.rel === 'alternate').href;
+      
+      // Menggunakan fungsi pembersih gambar resolusi tinggi (800px)
+      const thumb = post.media$thumbnail
+        ? smpkResizeImage(post.media$thumbnail.url, 's800')
         : 'https://via.placeholder.com/800x600';
 
-      const summary =
-        post.summary
-        ? post.summary.$t.replace(/<[^>]+>/g,'')
-            .substring(0,90)
+      const summary = post.summary
+        ? post.summary.$t.replace(/<[^>]+>/g,'').substring(0,90)
         : '';
 
       html += `
         <article class="smpk-news-card">
-
-          <a class="smpk-news-thumbnail"
-             href="${link}">
-
-            <img src="${thumb}"
-                 alt="${title}"/>
-
+          <a class="smpk-news-thumbnail" href="${link}">
+            <img src="${thumb}" alt="${title}"/>
           </a>
-
           <div class="smpk-news-content">
-
             <div class="smpk-news-meta">
               <span>Artikel</span>
             </div>
-
             <h3>
-              <a href="${link}">
-                ${title}
-              </a>
+              <a href="${link}">${title}</a>
             </h3>
-
-            <p>
-              ${summary}...
-            </p>
-
-            <a class="smpk-news-link"
-               href="${link}">
-              Baca Selengkapnya
-            </a>
-
+            <p>${summary}...</p>
+            <a class="smpk-news-link" href="${link}">Baca Selengkapnya</a>
           </div>
-
         </article>
       `;
-
     });
 
     html += `</div>`;
-
     container.innerHTML = html;
 
-  }catch(error){
-
-    console.error(
-      'Failed to load Blogger posts:',
-      error
-    );
-
+  } catch(error) {
+    console.error('Failed to load Blogger posts:', error);
   }
-
 }
 
-document.addEventListener(
-  'DOMContentLoaded',
-  smpkLoadNews
-);
+document.addEventListener('DOMContentLoaded', smpkLoadNews);
 
 
 // Reveal Animations
