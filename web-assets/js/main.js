@@ -80,16 +80,13 @@
 });
 
 // Blooger News
-
-
-// Fungsi pembantu untuk mengubah ukuran thumbnail Blogger menjadi High-Res
 function smpkResizeImage(url, targetSize) {
   if (!url) return 'https://via.placeholder.com/800x600';
-  
-  // Menangani format /s72-c/, /s1600/, /w72-h72-p/, dll.
+  if (url.includes('=')) {
+    return url.split('=')[0] + '=' + targetSize;
+  }
   let highResUrl = url.replace(/\/s\d+(-[a-zA-Z0-9-]+)?\//, `/${targetSize}/`);
   highResUrl = highResUrl.replace(/\/w\d+-h\d+[^/]*\//, `/${targetSize}/`);
-  
   return highResUrl;
 }
 
@@ -115,7 +112,7 @@ async function smpkLoadNews(){
     const featuredTitle = featured.title.$t;
     const featuredLink = featured.link.find(link => link.rel === 'alternate').href;
     
-    // Menggunakan fungsi pembersih gambar resolusi tinggi (1200px)
+    // Meminta resolusi s1200 (lebar 1200px) untuk area besar
     const featuredThumb = featured.media$thumbnail 
       ? smpkResizeImage(featured.media$thumbnail.url, 's1200')
       : 'https://via.placeholder.com/1200x800';
@@ -153,7 +150,7 @@ async function smpkLoadNews(){
       const title = post.title.$t;
       const link = post.link.find(link => link.rel === 'alternate').href;
       
-      // Menggunakan fungsi pembersih gambar resolusi tinggi (800px)
+      // Meminta resolusi s800 (lebar 800px) untuk area sidebar
       const thumb = post.media$thumbnail
         ? smpkResizeImage(post.media$thumbnail.url, 's800')
         : 'https://via.placeholder.com/800x600';
