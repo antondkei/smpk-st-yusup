@@ -332,3 +332,42 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   });
 });
+
+// Tab Nav Profil SMPK
+document.addEventListener('DOMContentLoaded',()=>{
+
+  const tabs =
+    document.querySelectorAll(
+      '.smpk-tab-nav button'
+    );
+
+  const panels =
+    document.querySelectorAll(
+      '.smpk-tab-panel'
+    );
+
+  tabs.forEach(tab=>{
+
+    tab.addEventListener('click',()=>{
+
+      tabs.forEach(btn=>{
+        btn.classList.remove('active');
+      });
+
+      panels.forEach(panel=>{
+        panel.classList.remove('active');
+      });
+
+      tab.classList.add('active');
+
+      document
+        .getElementById(
+          tab.dataset.tab
+        )
+        .classList.add('active');
+
+    });
+
+  });
+
+});
