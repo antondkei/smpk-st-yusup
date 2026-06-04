@@ -27,40 +27,6 @@
     --spacing-xl: 80px;
 }
 
-html::-webkit-scrollbar, body::-webkit-scrollbar { display: none; }
-html, body { scrollbar-width: none; -ms-overflow-style: none; margin: 0; padding: 0; width: 100%; overflow-x: hidden; }
-html { overflow-y: overlay; scrollbar-width: thin; scrollbar-color: var(--color-primary) transparent; }
-::-webkit-scrollbar { width: 6px; background-color: transparent; }
-::-webkit-scrollbar-thumb { background-color: var(--color-primary); border-radius: 10px; }
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    background-color: var(--color-white);
-    color: var(--color-text);
-    font-family: var(--font-main);
-    line-height: 1.6; /* Ditingkatkan dari 1.5 agar teks paragraf lebih bernapas */
-}
-
-#smpk-josh {
-    position: relative;
-    width: 100%;
-    max-width: 100vw;
-    font-family: 'Manrope', sans-serif;
-    background: var(--color-white);
-    color: var(--color-text);
-}
-
-#smpk-josh .smpk-container {
-    max-width: 1600px;
-    margin: 0 auto;
-    padding: 0 6%;
-    width: 100%;
-}
 
 /* ==========================================================================
    SISTEM TIPOGRAFI GLOBAL (Utility Classes)
