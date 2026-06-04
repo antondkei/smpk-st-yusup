@@ -270,8 +270,3 @@
         .cta-text { color: rgba(255,255,255,0.8); margin-bottom: 48px; max-width: 700px; margin-left: auto; margin-right: auto; }
         .cta-btns { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
         
-        .btn-large { padding: 18px 42px; border-radius: 16px; font-weight: 800; font-size: 18px; cursor: pointer; transition: all 0.3s; }
-        .btn-secondary { background: var(--color-secondary); color: var(--color-white); border: none; }
-        .btn-secondary:hover { background: #eab33d; transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
-        .btn-outline { background: transparent; border: 2px solid rgba(255,255,255,0.4); color: white; }
-        .btn-outline:hover { background: rgba(255,255,255,0.1); border-color: white; }

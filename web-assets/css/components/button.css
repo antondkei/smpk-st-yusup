@@ -30,7 +30,7 @@
   align-items: center;
   justify-content: center;
   gap: 10px;
-  margin:0 10px
+  margin:0 10px;
   font-family: 'Manrope', sans-serif;
   font-size: 15px;
   font-weight: 600;
@@ -85,6 +85,7 @@
 .btn-primary:hover {
   background-color: var(--color-primary-dark);
   box-shadow: var(--btn-shadow-hover);
+  transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 
 .btn-primary:active {
@@ -100,6 +101,9 @@
 .btn-secondary:hover {
   background-color: var(--color-secondary-dark);
   color: var(--color-primary);
+  transform: translateY(-2px);
+  transition: var(--transition-premium);
+  box-shadow: var(--shadow-premium-hover);
 }
 
 /* 3. Outline Button */
@@ -111,6 +115,7 @@
 
 .btn-outline:hover {
   background-color: var(--color-primary);
+  transition: var(--transition-premium);
   color: var(--color-white);
 }
 
@@ -118,6 +123,7 @@
 .btn-outline-white {
   background-color: transparent;
   border-color: var(--color-white);
+  transition: var(--transition-premium);
   color: var(--color-white);
 }
 
@@ -196,6 +202,7 @@
   background-color: var(--color-primary-dark);
   transform: translateY(-4px); /* Efek melayang */
   box-shadow: var(--shadow-premium-hover);
+  transition: var(--transition-premium);
   color: var(--color-white);
 }
 
@@ -235,6 +242,7 @@
 .btn-premium-morph:hover {
   color: var(--color-white) !important;
   transform: translateY(-2px);
+  transition: var(--transition-premium);
 }
 
 .btn-premium-morph:hover::before {
@@ -257,4 +265,5 @@
   box-shadow: 0 0 20px rgba(56, 189, 248, 0.4), /* Glow warna accent */
               var(--shadow-premium-hover);
   border-color: var(--color-accent);
+  transition: var(--transition-premium);
 }
