@@ -1,116 +1,108 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Anton&family=Fjalla+One&family=Manrope:wght@200..800&display=swap');
-
-
-/* =========================
-   GRID SYSTEM    
-========================= */
-
-.grid {
-  display: grid;
-  gap: 20px;
+/* ==========================================================================
+   CSS STYLES
+   ========================================================================== */
+:root {
+    --color-primary: #5a0f14;
+    --color-primary-dark: #3f0b0f;
+    --color-primary-soft: #841c23;
+    --color-secondary: #d4a437;
+    --color-secondary-light: #f0d38a;
+    --color-accent-light: #f7f1e3;
+    --color-text: #1e1e1e;
+    --color-text-soft: #5e5e5e;
+    --color-text-light: #8d8d8d;
+    --color-white: #ffffff;
+    --color-gradient: linear-gradient(135deg, #3b0a0f 0%, #5a0f14 30%, #b52f3f 100%);
+    --color-overlay: linear-gradient(to bottom, rgba(0,0,0,0.35), rgba(0,0,0,0.65));
+    
+    --font-main: 'Manrope', sans-serif;
+    --radius-default: 0.25rem;
+    --radius-lg: 0.5rem;
+    --radius-xl: 0.75rem;
+    --radius-2xl: 1.5rem;
+    --radius-3xl: 2rem;
+    --radius-full: 9999px;
+    
+    --spacing-xl: 80px;
 }
 
-/* =========================
-   GRID 2
-========================= */
+html::-webkit-scrollbar, body::-webkit-scrollbar { display: none; }
+html, body { scrollbar-width: none; -ms-overflow-style: none; margin: 0; padding: 0; width: 100%; overflow-x: hidden; }
+html { overflow-y: overlay; scrollbar-width: thin; scrollbar-color: var(--color-primary) transparent; }
+::-webkit-scrollbar { width: 6px; background-color: transparent; }
+::-webkit-scrollbar-thumb { background-color: var(--color-primary); border-radius: 10px; }
 
-.grid-2 {
-  grid-template-columns: repeat(2, 1fr);
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
+body {
+    background-color: var(--color-white);
+    color: var(--color-text);
+    font-family: var(--font-main);
+    line-height: 1.6; /* Ditingkatkan dari 1.5 agar teks paragraf lebih bernapas */
+}
+
+#smpk-josh {
+    position: relative;
+    width: 100%;
+    max-width: 100vw;
+    font-family: 'Manrope', sans-serif;
+    background: var(--color-white);
+    color: var(--color-text);
+}
+
+#smpk-josh .smpk-container {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0 6%;
+    width: 100%;
+}
+
+/* ==========================================================================
+   SISTEM TIPOGRAFI GLOBAL (Utility Classes)
+   ========================================================================== */
+.display-lg { font-size: 48px; line-height: 1.15; font-weight: 800; letter-spacing: -0.02em; }
+.headline-md { font-size: 30px; line-height: 1.25; font-weight: 700; letter-spacing: -0.01em; }
+.headline-sm { font-size: 24px; line-height: 1.3; font-weight: 700; }
+.headline-xs { font-size: 20px; line-height: 1.4; font-weight: 700; }
+.title-lg    { font-size: 20px; line-height: 1.4; font-weight: 600; }
+.body-lg     { font-size: 18px; line-height: 1.6; font-weight: 400; }
+.body-md     { font-size: 16px; line-height: 1.6; font-weight: 400; }
+.body-sm     { font-size: 14px; line-height: 1.6; font-weight: 400; }
+.label-md    { font-size: 14px; line-height: 1.4; font-weight: 500; letter-spacing: 0.01em; }
+.label-sm    { font-size: 12px; line-height: 1.4; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; }
+
+/* Utility Warna & Spasi untuk Tipografi */
+.color-primary   { color: var(--color-primary); }
+.color-secondary { color: var(--color-secondary); }
+.color-text-soft { color: var(--color-text-soft); }
+.color-text-light{ color: var(--color-text-light); }
+
+.margin-bottom-8  { margin-bottom: 8px; }
+.margin-bottom-16 { margin-bottom: 16px; }
+.margin-bottom-24 { margin-bottom: 24px; }
+.margin-bottom-32 { margin-bottom: 32px; }
+
+/* Utility Ikon SVG */
+.svg-icon {
+    fill: currentColor;
+    display: inline-block;
+    vertical-align: middle;
+}
+.icon-white { color: var(--color-white); }
+.flex-shrink-0 { flex-shrink: 0; }
+
+/* Media Query untuk Tipografi Responsif (Mobile) */
 @media (max-width: 768px) {
-  .grid-2 {
-    grid-template-columns: 1fr;
-    gap: 15px;
-  }
+    .display-lg { font-size: 34px; line-height: 1.2; }
+    .headline-md { font-size: 26px; }
+    .headline-sm { font-size: 20px; }
+    .body-lg { font-size: 16px; }
+    .body-md { font-size: 14px; }
+    .body-sm { font-size: 12px; }
+    
 }
 
-/* =========================
-   GRID 3
-========================= */
-
-.grid-3 {
-  grid-template-columns: repeat(3, 1fr);
-}
-
-@media (max-width: 992px) {
-  .grid-3 {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 576px) {
-  .grid-3 {
-    grid-template-columns: 1fr;
-    gap: 15px;
-  }
-}
-
-/* =========================
-   GRID 4
-========================= */
-
-.grid-4 {
-  grid-template-columns: repeat(4, 1fr);
-}
-
-@media (max-width: 992px) {
-  .grid-4 {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 576px) {
-  .grid-4 {
-    grid-template-columns: 1fr;
-    gap: 15px;
-  }
-}
-
-/* =========================
-   GRID 5
-========================= */
-
-.grid-5 {
-  grid-template-columns: repeat(5, 1fr);
-}
-
-@media (max-width: 992px) {
-  .grid-5 {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@media (max-width: 768px) {
-  .grid-5 {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
-  }
-}
-
-@media (max-width: 480px) {
-  .grid-5 {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* =========================
-   VARIABLES & ROOT CONTAINER
-========================= */
-#sby-priest {
-  /* Pindahkan variabel ke sini agar spesifik dan tidak tertimpa tema bawaan */
-  --color-primary: #006b3c;
-  --color-primary-dark: #005731;
-  --color-secondary: #e3a91a;
-  --color-accent: #2e8bcb;
-  --color-bg-light: #f9f8f7;
-  --color-bg-light-gold: #f2efeb;
-  --color-text: #292929;
-  --color-text-light: #e4e4e4;
-  --color-gradient: linear-gradient(135deg, #006b3c 0%, #009c47 20%, #28a661 100%);
-}
-
-#sby-priest * { 
-  box-sizing: border-box; 
-}
