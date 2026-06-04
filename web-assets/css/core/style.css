@@ -106,6 +106,7 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abb
   font-size: clamp(2.8rem, 5.5vw, 5.2rem);
   line-height: 1.1;
   font-weight: 800;
+  max-width: 800px;
   letter-spacing: -0.03em;
   color: var(--color-white, #ffffff);
 }
