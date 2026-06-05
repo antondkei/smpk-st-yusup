@@ -149,7 +149,7 @@
     border-radius: 12px; 
     height: fit-content;
 }
-
+.list-icon svg { width: 24px; height: 24px; fill: var(--color-primary); }
 /* Value Cards */
 .value-grid { display: grid; gap: 24px; }
 @media (min-width: 768px) { .value-grid { grid-template-columns: repeat(3, 1fr); } }
@@ -172,7 +172,7 @@
     margin-bottom: 32px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.05);
 }
-
+.value-icon-box svg { width: 32px; height: 32px; fill: var(--color-primary); }
 /* Timeline Program */
 .timeline { max-width: 900px; margin: 0 auto; position: relative; }
 .timeline-item { display: flex; gap: 32px; margin-bottom: 40px; position: relative; }
@@ -214,6 +214,7 @@
     flex-direction: column;
     justify-content: center;
 }
+.visi-card svg { width: 48px; height: 48px; fill: var(--color-secondary); margin-bottom: 24px; }
 .visi-card h3 { font-size: var(--fs-h3) !important; font-weight: 800; margin-bottom: 16px; color: var(--color-secondary); }
 .visi-card blockquote { font-size: var(--fs-body); line-height: 1.6; color: rgba(255,255,255,0.9); }
 .quote-icon { 
