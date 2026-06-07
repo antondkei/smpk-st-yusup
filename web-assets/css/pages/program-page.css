@@ -1,18 +1,19 @@
 /* Hero Section */
         .hero-program { 
-            background: linear-gradient(rgba(58, 0, 5, 0.85), rgba(58, 0, 5, 0.95)), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=2070&auto=format&fit=crop');
+            background: linear-gradient(rgba(58, 0, 5, 0.85), rgba(58, 0, 5, 0.95)), url('https://i.ibb.co.com/PGk2H2Cp/Hero-Pic-smpk-2.avif');
             background-size: cover; 
             background-position: center;
-            min-height: 500px; 
+            min-height: 600px; 
             display: flex; 
             align-items: center; 
             justify-content: center; 
-            color: white;
-            padding: 120px 0 80px;
+            padding: 160px 0 80px;
         }
 
+        .hero-program-title { text-align: center; }
         .hero-program h1 { color: var(--color-white); }
-        .hero-program-tagline { color: var(--color-secondary-light); letter-spacing: 0.2em; display: block; margin-bottom: var(--space-sm); }
+        .hero-program-tagline { width: fit-content; margin: 0 auto var(--space-sm); border: 2px solid var(--color-secondary); padding: 8px 16px; border-radius: var(--radius-lg); color: var(--color-secondary); letter-spacing: 0.2em; margin-bottom: var(--space-sm); }
+        .hero-program p { color: var(--color-white); margin-top: var(--space-sm); max-width: 672px; margin-left: auto; margin-right: auto; }
 
         /* Program Grid System */
         .program-grid { 
