@@ -39,12 +39,17 @@
   }
 
 .btn-group {
-  justify-content: center;
   flex-wrap: wrap;
   display: flex;
   gap: 20px;
 } 
 
+.btn-group-cta{
+  justify-content: center;
+    flex-wrap: wrap;
+  display: flex;
+  gap: 20px;
+}
 
 
 /* --- EFEK HOVER GLOBAL 1: Tactile Click --- */
@@ -57,6 +62,7 @@
 /* Jika ada ikon di dalam button, ikon akan sedikit bergeser maju saat hover */
 .btn svg {
   transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  fill: currentColor; /* Ikon akan mengikuti warna teks tombol */
 }
 .btn:hover svg {
   transform: translateX(4px);

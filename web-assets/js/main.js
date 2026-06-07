@@ -393,3 +393,22 @@ document.addEventListener('DOMContentLoaded',()=>{
     }, { threshold: 0.1 });
 
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// FAC ULTY SLIDER
+document.addEventListener("DOMContentLoaded", function () {
+  // FAQ Toggle Logic
+  const faqItems = document.querySelectorAll("#smpk-josh .faq-item");
+
+  faqItems.forEach(function(item) {
+    const btn = item.querySelector(".faq-question");
+
+    if (btn) {
+      btn.addEventListener("click", function() {
+        // Tutup item lain jika ingin model accordion (opsional)
+        // faqItems.forEach(i => { if(i !== item) i.classList.remove("active"); });
+        
+        item.classList.toggle("active");
+      });
+    }
+  });
+});

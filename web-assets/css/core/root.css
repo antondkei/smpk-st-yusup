@@ -1,7 +1,8 @@
 /* ==========================================================================
-   CSS STYLES
+   DESIGN TOKENS & SYSTEM ROOT
    ========================================================================== */
 :root {
+    /* Brand Colors */
     --color-primary: #5a0f14;
     --color-primary-dark: #3f0b0f;
     --color-primary-soft: #841c23;
@@ -17,65 +18,108 @@
     --color-overlay: linear-gradient(to bottom, rgba(0,0,0,0.35), rgba(0,0,0,0.65));
     
     --font-main: 'Manrope', sans-serif;
-    --radius-default: 0.25rem;
-    --radius-lg: 0.5rem;
-    --radius-xl: 0.75rem;
-    --radius-2xl: 1.5rem;
-    --radius-3xl: 2rem;
-    --radius-full: 9999px;
-    
-    --spacing-xl: 80px;
-}
 
+    /* Typography Scale */
+    --fs-display: clamp(3rem, 5vw, 4.5rem);
+    --fs-h1: clamp(2.25rem, 4vw, 3rem);
+    --fs-h2: clamp(1.75rem, 3vw, 2.25rem);
+    --fs-h3: clamp(1.25rem, 2vw, 1.5rem);
+    --fs-h4: clamp(1.125rem, 1.5vw, 1.25rem);
+    --fs-lead: 1.125rem;
+    --fs-body: 1rem;
+    --fs-small: .875rem;
+    --lh-tight: 1.2;
+    --lh-normal: 1.7;
+
+    /* Premium Shadow Layering */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-premium: 0 10px 30px -10px rgba(15, 23, 42, 0.3);
+    --shadow-premium-hover: 0 20px 40px -15px rgba(15, 23, 42, 0.45);
+    
+    /* Shimmer Effect Variables */
+    --btn-shine-bg: rgba(255, 255, 255, 0.25);
+    --btn-shine-bg-dark: rgba(15, 23, 42, 0.1);
+
+    /* Smooth Transitions */
+    --transition-premium: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    --transition-fast: all 0.15s ease;
+
+    /* Layout Spacing */
+    --gutter: 24px;
+    --space-xs: 4px;
+    --space-sm: 12px;
+    --space-md: 24px;
+    --space-lg: 48px;
+    --space-xl: 80px;
+    --container-max: 1280px;
+
+    /* Corner Radius */
+    --radius-sm: 4px;
+    --radius-md: 10px;
+    --radius-lg: 16px;
+    --radius-full: 9999px;
+}
 
 /* ==========================================================================
-   SISTEM TIPOGRAFI GLOBAL (Utility Classes)
+   RESET & BASE STYLES
    ========================================================================== */
-/* ==========================
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+}
+
+body {
+    background-color: var(--color-white);
+    color: var(--color-text);
+    font-family: var(--font-main);
+    font-size: var(--fs-body);
+    line-height: var(--lh-normal);
+    scroll-behavior: smooth;
+}
+
+a { 
+    text-decoration: none; 
+    color: inherit; 
+    transition: var(--transition-fast); 
+}
+
+ul { 
+    list-style: none; 
+}
+
+button { 
+    cursor: pointer; 
+    border: none; 
+    font-family: inherit; 
+}
+
+/* ==========================================================================
    TYPOGRAPHY SYSTEM
-========================== */
+   ========================================================================== */
+.display-lg { font-size: var(--fs-display); line-height: var(--lh-tight); font-weight: 800; color: var(--color-primary); }
+.headline-lg { font-size: var(--fs-h1); line-height: var(--lh-tight); font-weight: 700; color: var(--color-primary); }
+.headline-md { font-size: var(--fs-h2); line-height: var(--lh-tight); font-weight: 600; }
+.headline-sm { font-size: var(--fs-h3); line-height: var(--lh-tight); font-weight: 600; }
+.body-lg { font-size: var(--fs-lead); line-height: var(--lh-normal); color: var(--color-text-soft); }
+.body-md { font-size: var(--fs-body); line-height: var(--lh-normal); color: var(--color-text-soft); }
+.label-md { font-size: var(--fs-small); line-height: var(--lh-tight); font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; }
 
-:root {
-  --fs-display: clamp(3rem, 5vw, 4.5rem);
-  --fs-h1: clamp(2.25rem, 4vw, 3rem);
-  --fs-h2: clamp(1.75rem, 3vw, 2.25rem);
-  --fs-h3: clamp(1.25rem, 2vw, 1.5rem);
-  --fs-h4: clamp(1.125rem, 1.5vw, 1.25rem);
-  --fs-lead: 1.125rem;
-  --fs-body: 1rem;
-  --fs-small: .875rem;
-  --lh-tight: 1.2;
-  --lh-normal: 1.7;
-}
+/* Margin Utilities */
+.mb-xs { margin-bottom: var(--space-xs); }
+.mb-sm { margin-bottom: var(--space-sm); }
+.mb-md { margin-bottom: var(--space-md); }
+.mb-lg { margin-bottom: var(--space-lg); }
+.mb-xl { margin-bottom: var(--space-xl); }
 
-/* Utility Warna & Spasi untuk Tipografi */
-.color-primary   { color: var(--color-primary); }
-.color-secondary { color: var(--color-secondary); }
-.color-text-soft { color: var(--color-text-soft); }
-.color-text-light{ color: var(--color-text-light); }
-
-.margin-bottom-8  { margin-bottom: 8px; }
-.margin-bottom-16 { margin-bottom: 16px; }
-.margin-bottom-24 { margin-bottom: 24px; }
-.margin-bottom-32 { margin-bottom: 32px; }
-
-/* Utility Ikon SVG */
-.svg-icon {
-    fill: currentColor;
-    display: inline-block;
-    vertical-align: middle;
-}
-.icon-white { color: var(--color-white); }
-.flex-shrink-0 { flex-shrink: 0; }
-
-/* Media Query untuk Tipografi Responsif (Mobile) */
-@media (max-width: 768px) {
-    .display-lg { font-size: 34px; line-height: 1.2; }
-    .headline-md { font-size: 26px; }
-    .headline-sm { font-size: 20px; }
-    .body-lg { font-size: 16px; }
-    .body-md { font-size: 14px; }
-    .body-sm { font-size: 12px; }
-    
-}
-
+/* ==========================================================================
+   LAYOUT UTILITIES
+   ========================================================================== */
+.container { max-width: var(--container-max); margin: 0 auto; padding: 0 var(--gutter); width: 100%; }
+.section-padding { padding: var(--space-xl) 0; }
+.flex { display: flex; }
+.grid { display: grid; }
+.items-center { align-items: center; }
+.justify-between { justify-content: space-between; }
+.justify-center { justify-content: center; }
+.text-center { text-align: center; }
