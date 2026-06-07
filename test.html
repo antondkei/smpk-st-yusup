@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet"  href="test.css">
+    <title>Document</title>
+</head>
+<body>
+   <div class="modal-overlay">
+    <div class="modal-container">
+        <div class="modal-header-img"></div>
+        <div class="modal-body">
+            <button class="modal-close" onclick="closeModal()">
+                <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+            <div class="flex items-center mb-sm" style="gap: var(--space-sm);">
+                <div class="icon-box" id="modalIcon" style="margin-bottom: 0; width: 48px; height: 48px;">
+                    <!-- Diisi dinamis via JS -->
+                </div>
+                <h2 class="headline-md" id="modalTitle" style="color: var(--color-primary);">Program Detail</h2>
+            </div>
+            <div class="modal-divider"></div>
+            <div class="body-lg mb-lg" id="modalDescription" style="line-height: 1.6;">
+                Content...
+            </div>
+            <button class="btn btn-primary" onclick="closeModal()">Tutup Jendela</button>
+        </div>
+    </div>
+</div> 
+</body>
+</html>
