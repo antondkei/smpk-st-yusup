@@ -7,7 +7,6 @@
 .footer-container {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 0 6%;
   display: grid;
   /* Grid 5 Kolom: Kolom pertama (Brand) dibuat lebih lebar (1.5fr) */
   grid-template-columns: 1.5fr 1fr 1fr 1fr 1.2fr; 
@@ -125,9 +124,8 @@
 }
 
 .footer-bottom-container {
-  max-width: 1200px;
+  max-width: 1600px;
   margin: 0 auto;
-  padding: 0 24px;
   display: flex;
   justify-content: space-between;
   align-items: center;
