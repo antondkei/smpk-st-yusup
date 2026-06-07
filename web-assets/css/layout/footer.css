@@ -162,6 +162,7 @@
 @media (max-width: 1024px) {
   .footer-container {
     grid-template-columns: 1fr 1fr 1fr; /* Jadi 3 kolom di tablet */
+    padding: 0 6%;
   }
   .footer-brand {
     grid-column: span 3; /* Brand mengambil lebar penuh di atas */
@@ -173,6 +174,7 @@
 @media (max-width: 768px) {
   .footer-container {
     grid-template-columns: 1fr 1fr; /* Jadi 2 kolom di layar lebih kecil */
+      padding: 0 6%;
   }
   .footer-brand {
     grid-column: span 2;
