@@ -103,6 +103,7 @@ button {
 .headline-sm { font-size: var(--fs-h3); line-height: var(--lh-tight); font-weight: 600; }
 .body-lg { font-size: var(--fs-lead); line-height: var(--lh-normal); color: var(--color-text-soft); }
 .body-md { font-size: var(--fs-body); line-height: var(--lh-normal); color: var(--color-text-soft); }
+.body-sm { font-size: var(--fs-small); line-height: var(--lh-tight); color: var(--color-text-soft); }
 .label-md { font-size: var(--fs-small); line-height: var(--lh-tight); font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; }
 
 /* Margin Utilities */
