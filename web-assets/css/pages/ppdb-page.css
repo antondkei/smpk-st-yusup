@@ -137,7 +137,7 @@
    RESPONSIVE LAYOUT MEDIA QUERIES
    ========================================================================== */
 @media (max-width: 1024px) {
-    .feature-grid { grid-template-columns: repeat(2, 1fr); }
+    .feature-grid-ppdb { grid-template-columns: repeat(2, 1fr); }
     .journey-grid { grid-template-columns: 1fr; }
     .journey-line { display: none; }
     .admission-container { grid-template-columns: 1fr; }
