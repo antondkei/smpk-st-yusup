@@ -134,7 +134,8 @@
 @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
 .feature-grid { display: grid; gap: 64px; align-items: center; }
-@media (max-width: 1024px) {.feature-grid { grid-template-columns: repeat(1, 1fr); }}
+@media (max-width: 1024px) {.feature-grid { grid-template-columns: repeat(2, 1fr); }}
+@media (max-width: 991px) {.feature-grid { grid-template-columns: repeat(1, 1fr); }}
 .video-wrapper { aspect-ratio: 16/9; border-radius: 32px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
 .feature-img { width: 100%; height: 100%; object-fit: cover; }
 
