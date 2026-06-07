@@ -126,7 +126,7 @@
 .footer-bottom-container {
   max-width: 1400px;
   display: flex;
-  padding: 0 6%;
+  margin: 0 auto;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
