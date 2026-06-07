@@ -109,7 +109,7 @@
 /* Tabs Section */
 .tabs-section { padding: 100px 0; background: var(--color-white); }
 .section-header { margin-bottom: 64px; }
-.section-header h1{ text-align: center;  font-size: var(--fs-h1) !important; font-weight: 800; }
+.section-header h1{ text-align: center; font-weight: 800; }
 .header-line { width: 80px; height: 5px; background: var(--color-secondary); border-radius: 99px; margin: 16px auto 0; }
 
 .tab-nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-bottom: 64px; }
@@ -135,7 +135,7 @@
 
 .feature-grid { display: grid; gap: 64px; align-items: center; }
 @media (min-width: 992px) { .feature-grid { grid-template-columns: 1fr 1fr; } }
-
+@media (min-width: 768px) { .feature-grid { grid-template-columns: repeat(1, 1fr); } }
 .video-wrapper { aspect-ratio: 16/9; border-radius: 32px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
 .feature-img { width: 100%; height: 100%; object-fit: cover; }
 
