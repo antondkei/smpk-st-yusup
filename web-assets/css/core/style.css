@@ -1677,6 +1677,25 @@ padding: 10px;
   transform: translateY(-4px);
 }
 
+#smpk-josh .smpk-btn-outline{
+  background:
+    rgba(255,255,255,0.06);
+
+  border:
+    1px solid rgba(255,255,255,0.12);
+
+  color:#fff;
+
+  backdrop-filter:blur(10px);
+}
+
+#smpk-josh .smpk-btn-outline:hover{
+  transform:translateY(-5px);
+
+  background:
+    rgba(255,255,255,0.12);
+}
+
 /* =========================================
    TRUST POINT
 ========================================= */
