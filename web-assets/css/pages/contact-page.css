@@ -95,6 +95,12 @@
             background-color: var(--color-secondary-light);
             color: var(--color-primary);
         }
+        
+        .icon-box svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--color-primary);
+        }
         .contact-card:hover .icon-box {
             transform: scale(1.05);
         }
