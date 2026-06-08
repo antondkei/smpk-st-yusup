@@ -1,32 +1,590 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet"  href="test.css">
-    <title>Document</title>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Contact Us - St. Jude's Academy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+    <style>
+        /* ==========================================================================
+           DESIGN TOKENS & SYSTEM ROOT (Sesuai dengan Root SMPK.txt)
+           ========================================================================== */
+        :root {
+            /* Brand Colors */
+            --color-primary: #5a0f14;
+            --color-primary-dark: #3f0b0f;
+            --color-primary-soft: #841c23;
+            --color-secondary: #d4a435;
+            --color-secondary-dark: #bd9029;
+            --color-secondary-light: #f0d38a;
+            --color-accent-light: #f7f1e3;
+            --color-text: #1e1e1e;
+            --color-text-soft: #5e5e5e;
+            --color-text-light: #8d8d8d;
+            --color-white: #ffffff;
+            --color-background: #fcf9f8; /* Menjaga kontras subtle premium dari halaman lama */
+            --color-surface: #ffffff;
+            --color-surface-variant: #f6f3f2;
+            --color-outline: #dbc0bf;
+            --color-gradient: linear-gradient(135deg, #3b0a0f 0%, #5a0f14 30%, #b52f3f 100%);
+            --color-overlay: linear-gradient(to bottom, rgba(0,0,0,0.35), rgba(0,0,0,0.65));
+            
+            --font-main: 'Manrope', sans-serif;
+
+            /* Typography Scale */
+            --fs-display: clamp(3rem, 5vw, 4.5rem);
+            --fs-h1: clamp(2.25rem, 4vw, 3rem);
+            --fs-h2: clamp(1.75rem, 3vw, 2.25rem);
+            --fs-h3: clamp(1.25rem, 2vw, 1.5rem);
+            --fs-h4: clamp(1.125rem, 1.5vw, 1.25rem);
+            --fs-lead: 1.125rem;
+            --fs-body: 1rem;
+            --fs-small: .875rem;
+            --lh-tight: 1.2;
+            --lh-normal: 1.7;
+
+            /* Premium Shadow Layering */
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-premium: 0 10px 30px -10px rgba(15, 23, 42, 0.3);
+            --shadow-premium-hover: 0 20px 40px -15px rgba(15, 23, 42, 0.45);
+
+            /* Shimmer Effect Variables */
+            --btn-shine-bg: rgba(255, 255, 255, 0.25);
+            --btn-shine-bg-dark: rgba(15, 23, 42, 0.1);
+
+            /* Ultra Smooth Transitions (Custom Bezier) */
+            --transition-premium: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+            --transition-fast: all 0.15s ease;
+
+            /* Layout Spacing */
+            --gutter: 24px;
+            --space-xs: 4px;
+            --space-sm: 12px;
+            --space-md: 24px;
+            --space-lg: 48px;
+            --space-xl: 80px;
+            --container-max: 1280px;
+
+            /* Corner Radius */
+            --radius-sm: 4px;
+            --radius-md: 10px;
+            --radius-lg: 16px;
+            --radius-full: 9999px;
+        }
+
+        /* ==========================================================================
+           RESET & BASE STYLES
+           ========================================================================== */
+        * { 
+            margin: 0;
+            padding: 0; 
+            box-sizing: border-box; 
+        }
+
+        body {
+            background-color: var(--color-background);
+            color: var(--color-text);
+            font-family: var(--font-main);
+            font-size: var(--fs-body);
+            line-height: var(--lh-normal);
+            scroll-behavior: smooth;
+        }
+
+        a { 
+            text-decoration: none; 
+            color: inherit; 
+            transition: var(--transition-fast);
+        }
+
+        ul { 
+            list-style: none; 
+        }
+
+        button { 
+            cursor: pointer; 
+            border: none; 
+            font-family: inherit;
+            background: none;
+        }
+
+        input, select, textarea { 
+            font-family: inherit; 
+            font-size: inherit; 
+            width: 100%;
+            border: 1px solid var(--color-outline); 
+            border-radius: var(--radius-md); 
+            padding: 14px 18px; 
+            background-color: var(--color-white);
+            color: var(--color-text);
+            transition: var(--transition-fast);
+        }
+
+        input:focus, select:focus, textarea:focus { 
+            outline: none; 
+            border-color: var(--color-primary);
+            box-shadow: 0 0 0 3px rgba(90, 15, 20, 0.15); 
+        }
+
+        /* ==========================================================================
+           TYPOGRAPHY SYSTEM (Sesuai dengan Root SMPK.txt)
+           ========================================================================== */
+        .display-lg { font-size: var(--fs-display); line-height: var(--lh-tight); font-weight: 800; color: var(--color-primary); }
+        .headline-lg { font-size: var(--fs-h1); line-height: var(--lh-tight); font-weight: 700; color: var(--color-primary); }
+        .headline-md { font-size: var(--fs-h2); line-height: var(--lh-tight); font-weight: 600; color: var(--color-primary); }
+        .headline-sm { font-size: var(--fs-h3); line-height: var(--lh-tight); font-weight: 600; color: var(--color-primary-dark); }
+        .body-lg { font-size: var(--fs-lead); line-height: var(--lh-normal); color: var(--color-text-soft); }
+        .body-md { font-size: var(--fs-body); line-height: var(--lh-normal); color: var(--color-text-soft); }
+        .body-sm { font-size: var(--fs-small); line-height: var(--lh-tight); color: var(--color-text-soft); }
+        .label-md { font-size: var(--fs-small); line-height: var(--lh-tight); font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--color-text-soft); display: block; }
+
+        /* Margin Utilities */
+        .mb-xs { margin-bottom: var(--space-xs); }
+        .mb-sm { margin-bottom: var(--space-sm); }
+        .mb-md { margin-bottom: var(--space-md); }
+        .mb-lg { margin-bottom: var(--space-lg); }
+        .mb-xl { margin-bottom: var(--space-xl); }
+
+        /* Layout & Flex Utilities */
+        .flex { display: flex; }
+        .grid { display: grid; }
+        .items-center { align-items: center; }
+        .justify-between { justify-content: space-between; }
+        .justify-center { justify-content: center; }
+        .text-center { text-align: center; }
+
+        /* ==========================================================================
+           REFINED PREMIUM BUTTON SYSTEM (Sesuai dengan Root SMPK.txt)
+           ========================================================================== */
+        .btn {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 14px 28px;
+            border-radius: var(--radius-md);
+            font-size: 0.95rem;
+            font-weight: 700;
+            letter-spacing: 0.03em;
+            text-decoration: none;
+            transition: var(--transition-premium);
+            cursor: pointer;
+            text-transform: uppercase;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        /* Tactile Click Global Effect */
+        .btn:active {
+            transform: scale(0.96) translateY(1px) !important;
+            transition: var(--transition-fast);
+        }
+
+        /* Icon Animation Hook for SVG */
+        .btn svg {
+            transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+            fill: currentColor; /* Menyelaraskan warna fill ikon kustom dengan teks */
+        }
+        .btn:hover svg {
+            transform: translateX(4px);
+        }
+
+        /* Button Variants & Sizes */
+        .btn-primary {
+            background-color: var(--color-primary);
+            color: var(--color-white);
+        }
+        .btn-primary:hover {
+            background-color: var(--color-primary-dark);
+            transform: translateY(-3px); 
+            box-shadow: var(--shadow-premium-hover);
+        }
+
+        .btn-white {
+            background-color: var(--color-white);
+            color: var(--color-primary);
+            box-shadow: var(--shadow-sm);
+        }
+        .btn-white:hover {
+            background-color: var(--color-secondary-light);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-premium);
+        }
+
+        .btn-sm { padding: 6px 14px; font-size: 13px; border-radius: calc(var(--radius-md) - 2px); }
+        .btn-md { padding: 10px 20px; }
+        .btn-lg { padding: 14px 28px; font-size: 16px; }
+        .btn-block { display: flex; width: 100%; }
+
+        /* VARIAN A: THE SHINE & LIFT (Premium Modifier) */
+        .btn-premium-shine::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -150%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, var(--btn-shine-bg), transparent);
+            transform: skewX(-25deg);
+            z-index: -1;
+        }
+        .btn-premium-shine:hover::before {
+            animation: shineEffect 0.8s ease-in-out;
+        }
+        @keyframes shineEffect {
+            100% { left: 150%; }
+        }
+
+        /* ==========================================================================
+           PAGE COMPONENT DESIGNS
+           ========================================================================== */
+        
+        /* Header Navigation Space */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+            background: rgba(252, 249, 248, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            box-shadow: var(--shadow-sm);
+            border-bottom: 1px solid rgba(219, 192, 191, 0.3);
+        }
+        nav {
+            height: 90px;
+        }
+        .logo {
+            font-size: var(--fs-h3);
+            font-weight: 800;
+            color: var(--color-primary);
+            gap: 12px;
+        }
+        .nav-links {
+            gap: 32px;
+        }
+        .nav-link {
+            font-size: var(--fs-small);
+            font-weight: 700;
+            color: var(--color-text-soft);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 8px 0;
+            position: relative;
+        }
+        .nav-link:hover, .nav-link.active { 
+            color: var(--color-primary); 
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--color-primary);
+            transition: var(--transition-fast);
+        }
+        .nav-link:hover::after, .nav-link.active::after {
+            width: 100%;
+        }
+        
+        .mobile-toggle { 
+            display: none;
+            color: var(--color-primary); 
+        }
+
+        /* Main Content Structure */
+        main { 
+            padding-top: 140px;
+            padding-bottom: var(--space-xl); 
+        }
+        .grid-layout {
+            grid-template-columns: 5fr 7fr;
+            gap: var(--space-lg);
+            align-items: start;
+        }
+
+        /* Left Side Contact Info System */
+        .info-col { 
+            display: flex;
+            flex-direction: column; 
+            gap: var(--space-md); 
+        }
+        .accent-bar { 
+            width: 64px; 
+            height: 4px; 
+            background: var(--color-secondary-dark); 
+            border-radius: var(--radius-full); 
+        }
+        
+        .contact-cards { 
+            display: flex;
+            flex-direction: column; 
+            gap: 16px; 
+        }
+        .contact-card {
+            background: var(--color-surface);
+            padding: 24px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-premium);
+            border: 1px solid rgba(219, 192, 191, 0.2);
+            display: flex;
+            gap: 20px;
+            transition: var(--transition-premium);
+        }
+        .contact-card:hover { 
+            transform: translateY(-5px); 
+            box-shadow: var(--shadow-premium-hover);
+            border-color: rgba(90, 15, 20, 0.2);
+        }
+        .icon-box {
+            width: 52px;
+            height: 52px;
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: var(--transition-premium);
+        }
+        .contact-card:hover .icon-box {
+            transform: scale(1.05);
+        }
+        .icon-box.primary { background: #ffdad8; color: var(--color-primary); }
+        .icon-box.secondary { background: #ffdea1; color: #745500; }
+        
+        /* Map Component Box */
+        .map-card {
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-premium);
+            position: relative;
+            height: 240px;
+            border: 1px solid rgba(219, 192, 191, 0.2);
+        }
+        .map-card img { 
+            width: 100%;
+            height: 100%; 
+            object-fit: cover; 
+            transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1); 
+        }
+        .map-card:hover img { 
+            transform: scale(1.06); 
+        }
+        .map-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(90, 15, 20, 0.75), transparent 70%);
+            display: flex;
+            align-items: flex-end;
+            padding: 24px;
+        }
+
+        /* Right Side Form Module */
+        .form-col {
+            background: var(--color-surface);
+            padding: var(--space-lg);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-premium);
+            border: 1px solid rgba(219, 192, 191, 0.2);
+        }
+
+        /* Responsive Adaptive Layouts */
+        @media screen and (max-width: 1024px) {
+            .grid-layout {
+                grid-template-columns: 100%;
+                gap: var(--space-lg);
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            nav { height: 80px; }
+            .nav-links { display: none; }
+            .mobile-toggle { display: block; }
+            main { padding-top: 110px; }
+            .form-col { padding: var(--space-md); }
+            
+            .btn {
+                width: 100%;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
 </head>
 <body>
-   <div class="modal-overlay">
-    <div class="modal-container">
-        <div class="modal-header-img"></div>
-        <div class="modal-body">
-            <button class="modal-close" onclick="closeModal()">
-                <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-            </button>
-            <div class="flex items-center mb-sm" style="gap: var(--space-sm);">
-                <div class="icon-box" id="modalIcon" style="margin-bottom: 0; width: 48px; height: 48px;">
-                    <!-- Diisi dinamis via JS -->
+
+    <header>
+        <div class="smpk-container">
+            <nav class="flex items-center justify-between">
+                <div class="logo flex items-center">
+                    <svg viewBox="0 0 24 24" width="34" height="34" fill="currentColor">
+                        <path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/>
+                    </svg>
+                    St. Jude's Academy
                 </div>
-                <h2 class="headline-md" id="modalTitle" style="color: var(--color-primary);">Program Detail</h2>
-            </div>
-            <div class="modal-divider"></div>
-            <div class="body-lg mb-lg" id="modalDescription" style="line-height: 1.6;">
-                Content...
-            </div>
-            <button class="btn btn-primary" onclick="closeModal()">Tutup Jendela</button>
+                <div class="nav-links flex items-center">
+                    <a class="nav-link" href="#">Admissions</a>
+                    <a class="nav-link" href="#">Academics</a>
+                    <a class="nav-link" href="#">Student Life</a>
+                    <a class="nav-link" href="#">About</a>
+                    <a class="nav-link active" href="#">Contact</a>
+                    <button class="btn btn-primary btn-premium-shine btn-sm">Apply Now</button>
+                </div>
+                <button class="mobile-toggle">
+                    <svg viewBox="0 0 24 24" width="30" height="30" fill="currentColor">
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </button>
+            </nav>
         </div>
-    </div>
-</div> 
+    </header>
+
+    <main class="smpk-container">
+        <div class="grid grid-layout">
+            
+            <div class="info-col">
+                <div>
+                    <h1 class="headline-lg mb-xs">Hubungi Kami</h1>
+                    <div class="accent-bar mb-md"></div>
+                    <p class="body-lg">Kami siap membantu menjawab seluruh pertanyaan Anda mengenai St. Jude's Academy.</p>
+                </div>
+                
+                <div class="contact-cards">
+                    <div class="contact-card">
+                        <div class="icon-box primary">
+                            <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="label-md mb-xs">Alamat</h3>
+                            <p class="body-md" style="font-weight: 600;">Jl. Pendidikan No. 123, Kawasan Academic, Jakarta Selatan, 12345</p>
+                        </div>
+                    </div>
+                    <div class="contact-card">
+                        <div class="icon-box secondary">
+                            <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                                <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="label-md mb-xs">Telepon</h3>
+                            <p class="body-md" style="font-weight: 600;">(021) 555-0199 / +62 821-9000-6065</p>
+                        </div>
+                    </div>
+                    <div class="contact-card">
+                        <div class="icon-box primary">
+                            <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="label-md mb-xs">Email</h3>
+                            <p class="body-md" style="font-weight: 600;">info@stjudesacademy.edu</p>
+                        </div>
+                    </div>
+                    <div class="contact-card">
+                        <div class="icon-box secondary">
+                            <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                                <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm6.93 6h-2.95a15.65 15.65 0 0 0-1.38-3.56A8.03 8.03 0 0 1 18.92 8zM12 4.04c.83 1.2 1.48 2.53 1.91 3.96h-3.82c.43-1.43 1.08-2.76 1.91-3.96zM4.26 14C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.34-.14 2 0 .66.06 1.34.14 2H4.26zm.82 2h2.95c.32 1.25.78 2.45 1.38 3.56A7.987 7.987 0 0 1 5.08 16zm2.95-8H5.08a7.987 7.987 0 0 1 4.33-3.56A15.65 15.65 0 0 0 8.03 8zM12 19.96c-.83-1.2-1.48-2.53-1.91-3.96h3.82c-.43 1.43-1.08 2.76-1.91 3.96zM14.34 14H9.66c-.09-.66-.16-1.34-.16-2 0-.66.07-1.34.16-2h4.68c.09.66.16 1.34.16 2 0 .66-.07 1.34-.16 2zm.28 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95a7.987 7.987 0 0 1-4.33 3.56zM16.36 14c.08-.66.14-1.34.14-2 0-.66-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2h-3.38z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="label-md mb-xs">Website</h3>
+                            <p class="body-md" style="font-weight: 600;">www.stjudesacademy.edu</p>
+                        </div>
+                    </div>
+                    <div class="contact-card">
+                        <div class="icon-box primary">
+                            <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                                <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="label-md mb-xs">Narahubung</h3>
+                            <p class="body-md" style="font-weight: 600;">Ibu Maya (Humas)</p>
+                            <p class="body-sm" style="margin-top: 4px;">Tersedia pukul 08:00 - 16:00 WIB</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="map-card">
+                    <img alt="Map Illustration" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBiEhD5N-KNnz7XTWQNx4tu0_tIQK9txJXbk-Blt7Qmpaz2_an8WdBqHkExRlPrY0qVV9aLdSj8JD1mIkIw6Ku4uWdeYrYu9QFy6Y67WHgZKmjjEWtgBbf8mh8kktfWA0uZtraSRvw_I2YwHQlnhC4IPJQX7H0SDSyrw5PgLvGhAqkCYyfF0exbyQF2z1uNstRj7vYXQXz30eLVFxdKshtHK-sVtD6a6zuBFce7lQGpoXV_W5crWhGnGAYm_VFubPmXClkRS1PHDg"/>
+                    <div class="map-overlay">
+                        <button class="btn btn-white btn-md" onclick="window.open('https://maps.google.com', '_blank')">
+                            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 4px;">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/>
+                            </svg>
+                            Buka di Google Maps
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-col">
+                <h2 class="headline-md mb-lg">Kirim Pesan</h2>
+                <form id="contactForm">
+                    <div class="mb-md">
+                        <label for="name" class="label-md mb-xs">Nama Lengkap</label>
+                        <input id="name" placeholder="Masukkan nama lengkap Anda" required="" type="text"/>
+                    </div>
+                    <div class="mb-md">
+                        <label for="category" class="label-md mb-xs">Kategori Pertanyaan</label>
+                        <select id="category" required="">
+                            <option value="">Pilih Kategori</option>
+                            <option value="PPDB">Pendaftaran Siswa Baru (PPDB)</option>
+                            <option value="Akademik">Informasi Akademik</option>
+                            <option value="Biaya">Biaya Pendidikan</option>
+                            <option value="Fasilitas">Fasilitas Sekolah</option>
+                            <option value="Kerjasama">Kerjasama & Institusi</option>
+                            <option value="Lainnya">Lainnya</option>
+                        </select>
+                    </div>
+                    <div class="mb-md">
+                        <label for="message" class="label-md mb-xs">Pesan</label>
+                        <textarea id="message" placeholder="Tuliskan pesan atau pertanyaan Anda di sini..." required="" rows="6"></textarea>
+                    </div>
+                    
+                    <div class="mb-sm" style="margin-top: 36px;">
+                        <button class="btn btn-primary btn-premium-shine btn-block" style="padding: 18px; font-size: 1rem;" onclick="sendWhatsApp()" type="button">
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                                <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+                            </svg>
+                            Kirim via WhatsApp
+                        </button>
+                    </div>
+                    <p class="body-sm text-center" style="color: var(--color-text-light); font-style: italic;">
+                        *Pesan Anda akan langsung terkirim ke tim admin kami via WhatsApp.
+                    </p>
+                </form>
+            </div>
+
+        </div>
+    </main>
+
+    <script>
+        function sendWhatsApp() {
+            const name = document.getElementById('name').value;
+            const category = document.getElementById('category').value;
+            const message = document.getElementById('message').value;
+
+            if (!name || !category || !message) {
+                alert('Silakan lengkapi semua field yang tersedia.');
+                return;
+            }
+
+            const phoneNumber = '6282190006065';
+            const formattedMessage = `Nama: ${name}\nKategori: ${category}\nPesan: ${message}`;
+            const encodedMessage = encodeURIComponent(formattedMessage);
+            const waUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+            
+            window.open(waUrl, '_blank');
+        }
+
+        document.querySelector('.mobile-toggle').addEventListener('click', () => {
+            alert('Mobile menu toggle triggered');
+        });
+    </script>
 </body>
 </html>
